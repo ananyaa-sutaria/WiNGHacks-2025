@@ -14,9 +14,9 @@ import {
 const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scholarships, setScholarships] = useState([
-    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students', deadline: 'February 8, 2025' },
-    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students', deadline: 'March 15, 2025' },
-    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students', deadline: 'April 20, 2025' },
+    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
+    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
+    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
     // You can add more mock data or real data here
   ]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const ScholarshipScreen = () => {
 
   // Handle pressing a scholarship item
   const handlePress = (scholarship: any) => {
-    const url = `https://www.ufl.edu/scholarships/${scholarship.id}`; // Example link structure for each scholarship
+    const url = `https://www.hsf.net/}`; // Example link structure for each scholarship
     Linking.openURL(url).catch((err) => console.error("Couldn't load the page", err));
   };
 
@@ -41,8 +41,7 @@ const ScholarshipScreen = () => {
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>Scholarship Hub</Text>
-        <Text style={styles.headerText}>Find your perfect match! 🔎</Text>
+        <Text style={styles.headerText}>Scholarship Hub</Text>
       </View>
 
       {/* Regular text above the search bar */}
@@ -90,8 +89,10 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#A1CEDC',  // Green background for the header
-    padding: 50,
+    padding: 70,
     borderRadius: 0,
+    top: -50,
+    height: 255,
     marginBottom: 16,
     alignItems: 'center',
   },
@@ -101,15 +102,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold', // Bold font weight
   },
   headerText: {
-    color: '#000', // Changed to black
+    color: '#fff',
     fontSize: 24,
-    fontStyle: 'italic', // Italicized text
-  },
-  regularText: {
-    color: '#000', // Changed to black
-    fontSize: 18,
-    marginBottom: 16,
-    textAlign: 'center',
+    fontWeight: 'bold',
   },
   searchBar: {
     height: 40,
@@ -117,7 +112,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 8,
     borderRadius: 5,
-    marginBottom: 16,
+    marginBottom: 40,
     backgroundColor: '#fff',
     marginTop: 40, // Added marginTop to move it down
   },
