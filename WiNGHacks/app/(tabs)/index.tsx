@@ -1,60 +1,82 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import the navigation hook
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import the correct type
+import { RootTabParamList } from './types'; // Import the type for your screens
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
+
+type Navigation = NativeStackNavigationProp<RootTabParamList>;
+
 export default function HomeScreen() {
+  const navigation = useNavigation<Navigation>(); // Ensure correct typing here
+
+
+
+  // Function to navigate to another tab
+  const navigateToChatbot = () => {
+    navigation.navigate('Chatbot'); // Ensure 'Chatbot' is part of your RootTabParamList type
+  };
+  const navigateToCalendar = () => {
+    navigation.navigate('Calendar'); // Ensure 'Chatbot' is part of your RootTabParamList type
+  };
+  const navigateToAScholarship = () => {
+    navigation.navigate('Calendar'); // Ensure 'Chatbot' is part of your RootTabParamList type
+  };
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    headerBackgroundColor={{ light: '#aae6ca', dark: '#aae6ca' }}
+    headerImage={
+      <ThemedView style={styles.headerImageContainer}>
         <Image
-          source={require('@/assets/images/partial-react-logo.png')}
+          source={require('@/assets/images/profile.png')}
           style={styles.reactLogo}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
+        <ThemedText style={styles.headerOverlayText}>Welcome, USER!</ThemedText>
+      </ThemedView>
+    }>
+    <ThemedView style={styles.titleContainer}>
+      <ThemedText type="title">Welcome!</ThemedText>
+      <HelloWave />
+    </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Ask KAPA:</ThemedText>
+        <TouchableOpacity style={styles.linkButton} onPress={navigateToChatbot}>
+        <ThemedText type="link">Navigate to KAPA!</ThemedText>
+      </TouchableOpacity>
+        
+        
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
+        <ThemedText type="subtitle">View Student Org Calendar:</ThemedText>
+        <TouchableOpacity style={styles.linkButton} onPress={navigateToCalendar}>
+        <ThemedText type="link">Navigate to Calendar!</ThemedText>
+      </TouchableOpacity>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
+      <ThemedView> 
+      <ThemedText type="subtitle">View Scholarships:</ThemedText>
+      <TouchableOpacity style={styles.linkButton} onPress={navigateToAScholarship}>
+        <ThemedText type="link">Navigate to Scholarships!</ThemedText>
+        
+      </TouchableOpacity>
       </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
+     
+        
+      
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  headerImageContainer: {
+    position: 'relative',
+    backgroundColor: '#A1CEDC', // This is the color you're applying to the top of the header
+    paddingTop: 20, // You can adjust this to move the text lower or higher
+    paddingBottom: 90,
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -65,10 +87,26 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+    height: 150,
+    width: '40%',
+    bottom: -55,
+    left: 10,
+  },
+  headerOverlayText: {
     position: 'absolute',
+    top: 150,
+    width: "90%",
+    left: 180,
+    height: 100,
+    color: '#00000', // White text color
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  linkButton: {
+    marginTop: 20,
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#A1CEDC', // Optional button background color
+    borderRadius: 5,
   },
 });
