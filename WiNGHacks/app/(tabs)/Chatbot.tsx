@@ -10,7 +10,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '##ffcc99', dark: '#ffcc99' }}
+      headerBackgroundColor={{ light: '##ffcc99', dark: '#7cc9e6' }}
       headerImage={
         <Image
           source={require('@/assets/images/chatbot.png')}  // Replace with your image path
@@ -98,9 +98,10 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   headerImage: {
     color: '#808080',
-    width: '50%',
-    bottom: -90,
-    left: -35,
+    width: '45%',
+    height: 200,
+    bottom: 10,
+    left: 10,
     position: 'absolute',
   },
   titleContainer: {
