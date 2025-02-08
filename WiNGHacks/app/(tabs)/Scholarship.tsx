@@ -14,10 +14,12 @@ import {
 const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scholarships, setScholarships] = useState([
-    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
-    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
-    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
-    // You can add more mock data or real data here
+    { id: '1', name: 'Hispanic Scholarship Fund', description: 'Empowers hispanic students  with the knowledge and resources to successfully complete a higher education' },
+    { id: '2', name: 'Society of Women Engineers Scholarship', description: 'Empowers women pursuing undergraduate and graduate degrees in engineering, engineering technology, and related fields.' },
+    { id: '3', name: 'Machen Florida Opportunity Scholarship', description: 'Assists historically low-income first-generation college students in meeting their college costs.' },
+    {id: '4', name: "Out to Innovate - LGBTQ+", description: 'Award scholarships to LGBTQ+ students currently enrolled in Science, Technology, Engineering, or Mathematics (STEM) or STEM-related teaching fields.'},
+    {id: '5', name: "Tata - For Indian International Students", description: 'A need-based scholarship for Indian students to attend University in the United States.'},
+
   ]);
   const [loading, setLoading] = useState(false);
 
@@ -33,7 +35,7 @@ const ScholarshipScreen = () => {
 
   // Handle pressing a scholarship item
   const handlePress = (scholarship: any) => {
-    const url = `https://www.ufl.edu/scholarships/${scholarship.id}`; // Example link structure for each scholarship
+    const url = `https://www.hsf.net/}`; // Example link structure for each scholarship
     Linking.openURL(url).catch((err) => console.error("Couldn't load the page", err));
   };
 
@@ -42,6 +44,8 @@ const ScholarshipScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerText}>Scholarship Hub</Text>
+        <Text style={styles.defaultText}>Search for scholarships by keyword.</Text>
+
       </View>
 
       {/* Search Bar */}
@@ -85,15 +89,24 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: '#A1CEDC',  // Green background for the header
-    padding: 50,
+    padding: 70,
     borderRadius: 0,
+    top: -50,
+    height: 255,
     marginBottom: 16,
     alignItems: 'center',
   },
   headerText: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
+    bottom: -30,
+  },
+  defaultText: {
+    color: '#fff',
+    fontSize: 18,
+    bottom: -30,
+    width: 270,
   },
   searchBar: {
     height: 40,
@@ -101,9 +114,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 8,
     borderRadius: 5,
-    marginBottom: 16,
+    marginBottom: 40,
     backgroundColor: '#fff',
-    marginTop: 40, // Added marginTop to move it down
+    marginTop: -20, // Added marginTop to move it down
   },
   scholarshipItem: {
     padding: 20,
