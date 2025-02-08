@@ -143,16 +143,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
     shadowOpacity: 0.3,           // Shadow opacity
     shadowRadius: 10, // Optional button background color
-    borderRadius: 15,
+    borderRadius: 5,
     
     
   },
   profileButtom:{
     marginTop: 0,
     alignItems: 'center',
-    padding: 0,
+    padding: -6,
     backgroundColor: '#84b6c5', // Optional button background color
-    borderRadius: 15,
+    borderRadius: 5,
     fontWeight: 'bold',
     shadowColor: '#000',          // Shadow color (black)
     shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
