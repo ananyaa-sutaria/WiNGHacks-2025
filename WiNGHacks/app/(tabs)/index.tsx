@@ -42,7 +42,7 @@ export default function HomeScreen() {
       </ThemedView>
     }>
        <TouchableOpacity style={styles.profileButtom} onPress={navigateToProfile}>
-        <ThemedText type="link">View Your Profile!</ThemedText>
+        <ThemedText type="profile">View Your Profile!</ThemedText>
       </TouchableOpacity>
     <ThemedView style={styles.titleContainer}>
       <ThemedText type="title">Welcome!</ThemedText>
@@ -122,6 +122,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#A1CEDC', // Optional button background color
     borderRadius: 5,
     fontSize: 30,
+    fontWeight: 'bold',
+  },
+  profile:{
+    fontSize: 50,
     fontWeight: 'bold',
   }
 });
