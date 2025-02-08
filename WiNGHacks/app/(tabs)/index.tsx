@@ -118,8 +118,10 @@ const styles = StyleSheet.create({
   profileButtom:{
     marginTop: 20,
     alignItems: 'center',
-    padding: 10,
+    padding: 20,
     backgroundColor: '#A1CEDC', // Optional button background color
     borderRadius: 5,
+    fontSize: 30,
+    fontWeight: 'bold',
   }
 });
