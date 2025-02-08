@@ -66,6 +66,7 @@ export default function TabTwoScreen() {
       <TextInput
       style = {styles.userInput}
       placeholder = "Type your question: "
+      placeholderTextColor="black"
       value = {userInput}
       onChangeText = {handleChangeText}
       returnKeyType = "search"
