@@ -11,7 +11,8 @@ import {
   useColorScheme,
   Pressable,
   Modal,
-  TouchableOpacity
+  TouchableOpacity,
+  Button
 } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -207,6 +208,10 @@ export default function ScholarshipScreen() {
               nestedScrollEnabled={false}
             />
           )}
+
+          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+            <ThemedText style = {styles.buttonText}>Go to scholarhip</ThemedText>
+          </TouchableOpacity>
         </ThemedView>
       </ScrollView>
     </SafeAreaView>
@@ -311,5 +316,17 @@ const styles = StyleSheet.create({
   emptyText: {
     textAlign: 'center',
     marginTop: 20,
+  },
+  button: {
+    marginTop: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    backgroundColor: '#4CAF50',
+    alignItems: 'center',
+  },
+  buttonText: {
+    color: '#000000',
+    fontSize: 15,
+    fontWeight: '500',
   },
 });
