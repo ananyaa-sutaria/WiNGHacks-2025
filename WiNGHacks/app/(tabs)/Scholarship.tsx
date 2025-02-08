@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react';
-import { 
-  StyleSheet, 
-  TextInput, 
-  FlatList, 
-  ActivityIndicator,
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  FlatList,
   View,
   TouchableOpacity,
   Linking,
@@ -15,9 +14,9 @@ import {
 const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scholarships, setScholarships] = useState([
-    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
-    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
-    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
+    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students', deadline: 'February 8, 2025' },
+    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students', deadline: 'March 15, 2025' },
+    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students', deadline: 'April 20, 2025' },
     // You can add more mock data or real data here
   ]);
   const [loading, setLoading] = useState(false);
@@ -39,25 +38,6 @@ const ScholarshipScreen = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: headerBackgroundColor }]}>
-      <ScrollView 
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollViewContent}
-      >
-        <ThemedView style={styles.container}>
-          <ThemedView style={styles.titleContainer}>
-            <ThemedText type="title">Scholarship Hub</ThemedText>
-          </ThemedView>
-
-          <TextInput
-            style={styles.searchBar}
-            placeholder="Search Scholarships..."
-            placeholderTextColor="#888"
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-          />
-=======
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -76,42 +56,27 @@ const ScholarshipScreen = () => {
         value={searchQuery}
         onChangeText={handleSearch}
       />
->>>>>>> cf44c66b53880ba690d5642abea6226d99712685
 
-          {renderFilters()}
-
-          {error ? (
-            <ThemedText style={styles.errorText}>{error}</ThemedText>
-          ) : loading ? (
-            <ActivityIndicator size="large" color="#000" style={styles.loader} />
-          ) : (
-            <FlatList
-              data={filteredScholarships}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <ThemedView style={styles.scholarshipItem}>
-                  <ThemedText style={styles.scholarshipName}>{item.name}</ThemedText>
-                  {item.college && (
-                    <ThemedText style={styles.scholarshipDetails}>College: {item.college}</ThemedText>
-                  )}
-                  {item.year && (
-                    <ThemedText style={styles.scholarshipDetails}>Year: {item.year}</ThemedText>
-                  )}
-                </ThemedView>
-              )}
-              ListEmptyComponent={
-                <ThemedText style={styles.emptyText}>No scholarships found</ThemedText>
-              }
-              scrollEnabled={false}
-              nestedScrollEnabled={false}
-            />
+      {/* Loading indicator or list */}
+      {loading ? (
+        <ActivityIndicator size="large" color="#000" />
+      ) : (
+        <FlatList
+          data={filteredScholarships}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.scholarshipItem}
+              onPress={() => handlePress(item)}
+            >
+              <Text style={styles.scholarshipName}>{item.name}</Text>
+              <Text style={styles.scholarshipDescription}>{item.description}</Text>
+              <Text style={styles.scholarshipDeadline}>Deadline: {item.deadline}</Text>
+            </TouchableOpacity>
           )}
-
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
-            <ThemedText style = {styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
-          </TouchableOpacity>
-        </ThemedView>
-      </ScrollView>
+          ListEmptyComponent={<Text>No scholarships found</Text>}
+        />
+      )}
     </SafeAreaView>
   );
 };
@@ -138,7 +103,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: '#000', // Changed to black
     fontSize: 24,
-git     fontStyle: 'italic', // Italicized text
+    fontStyle: 'italic', // Italicized text
   },
   regularText: {
     color: '#000', // Changed to black
@@ -159,8 +124,9 @@ git     fontStyle: 'italic', // Italicized text
   scholarshipItem: {
     padding: 20,
     backgroundColor: '#fff',
-    marginBottom: 8,
-    borderRadius: 8,
+    marginBottom: 16, // Increased marginBottom for more space
+    marginHorizontal: 16, // Added horizontal margin for spacing
+    borderRadius: 18, // Increased borderRadius for more rounded corners
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -175,33 +141,11 @@ git     fontStyle: 'italic', // Italicized text
     fontSize: 14,
     color: '#666',
   },
-  loader: {
-    marginTop: 20,
-  },
-  errorText: {
-    color: 'red',
-    textAlign: 'center',
-    marginTop: 20,
-  },
-  emptyText: {
-    textAlign: 'center',
-    marginTop: 20,
-  },
-  button: {
-    marginTop: 20,
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    backgroundColor: '#FFFFFF', // White background
-    alignItems: 'center',
-    borderRadius: 25, // Rounded edges
-    shadowColor: '#000', // Optional shadow for depth
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-  },
-  buttonText: {
-    color: '#000000',
-    fontSize: 15,
-    fontWeight: '500',
+  scholarshipDeadline: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 8,
   },
 });
+
+export default ScholarshipScreen;
