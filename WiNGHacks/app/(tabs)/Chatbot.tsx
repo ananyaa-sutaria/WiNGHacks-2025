@@ -7,6 +7,8 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
+import React, { useEffect, useState } from 'react';
+
 export default function TabTwoScreen() {
   return (
     
@@ -112,3 +114,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+async function generateContent(){
+  const genAI = new GoogleGenerativeAI("AIzaSyBpyKAe7vUEVZ89A2HfmPHk6A1tAhrkchE");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+
+const prompt = "Explain how AI works";
+
+
+const result = await model.generateContent(prompt); 
+console.log(result.response.text());
+
+}
