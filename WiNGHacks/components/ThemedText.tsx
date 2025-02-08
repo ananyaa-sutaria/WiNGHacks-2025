@@ -60,5 +60,6 @@ const styles = StyleSheet.create({
   },
   centered: {
     textAlign: 'center', // This centers the title text
+    alignSelf: 'center',
   },
 });

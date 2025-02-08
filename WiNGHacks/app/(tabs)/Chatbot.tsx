@@ -107,6 +107,8 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     flexDirection: 'row',
-    gap: 8,
+    //gap: 8,
+    justifyContent: 'center', // Centers content vertically
+    alignItems: 'center',
   },
 });
