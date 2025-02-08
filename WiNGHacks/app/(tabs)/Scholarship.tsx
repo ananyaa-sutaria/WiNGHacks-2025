@@ -1,210 +1,110 @@
-import { useState, useEffect } from 'react';
-import { 
-  StyleSheet, 
-  TextInput, 
-  FlatList, 
-  ActivityIndicator,
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  FlatList,
   View,
-  ScrollView,
+  TouchableOpacity,
+  Linking,
   SafeAreaView,
-  useColorScheme,
-  TouchableOpacity
+  Text,
+  ActivityIndicator
 } from 'react-native';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-interface Scholarship {
-  id: string;
-  name: string;
-  college?: string;
-  year?: number;
-}
-
-const UF_COLLEGES = [
-  "All Colleges",
-  "Agricultural and Life Sciences",
-  "Arts",
-  "Business",
-  "Dental Medicine",
-  "Design, Construction and Planning",
-  "Education",
-  "Engineering",
-  "Health and Human Performance",
-  "Journalism and Communications",
-  "Law",
-  "Liberal Arts and Sciences",
-  "Medicine",
-  "Nursing",
-  "Pharmacy",
-  "Public Health and Health Professions",
-  "Veterinary Medicine"
-];
-
-const STUDY_YEARS = ["All Years", "1", "2", "3", "4", "5"];
-
-export default function ScholarshipScreen() {
+const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [scholarships, setScholarships] = useState<Scholarship[]>([]);
-  const [filteredScholarships, setFilteredScholarships] = useState<Scholarship[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedCollege, setSelectedCollege] = useState("All Colleges");
-  const [selectedYear, setSelectedYear] = useState("All Years");
-  const [error, setError] = useState<string | null>(null);
-  const colorScheme = useColorScheme();
+  const [scholarships, setScholarships] = useState([
+    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
+    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
+    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
+    // You can add more mock data or real data here
+  ]);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchScholarships = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await fetch('https://api.example.com/scholarships'); // Use your actual API endpoint
-        if (!response.ok) {
-          throw new Error('Failed to fetch scholarships');
-        }
-        const data: Scholarship[] = await response.json();
-        setScholarships(data);
-        setFilteredScholarships(data); // Initially show all scholarships
-      } catch (error) {
-        console.error('Error fetching scholarships:', error);
-        setError('Failed to load scholarships. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Handle text input change and search
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
 
-    fetchScholarships();
-  }, []);
-
-  // Filter scholarships based on search query, college, and year
-  useEffect(() => {
-    const filtered = scholarships.filter(scholarship => {
-      const matchesSearch = scholarship.name.toLowerCase().includes(searchQuery.toLowerCase());
-      const matchesCollege = selectedCollege === "All Colleges" || scholarship.college === selectedCollege;
-      const matchesYear = selectedYear === "All Years" || scholarship.year === parseInt(selectedYear);
-      return matchesSearch && matchesCollege && matchesYear;
-    });
-    setFilteredScholarships(filtered);
-  }, [searchQuery, selectedCollege, selectedYear, scholarships]);
-
-  const renderFilters = () => (
-    <View style={styles.filtersContainer}>
-      {/* Add dropdown filters for College and Year */}
-    </View>
+  // Filter scholarships based on the search query
+  const filteredScholarships = scholarships.filter(scholarship =>
+    scholarship.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const headerBackgroundColor = colorScheme === 'dark' ? '#353636' : '#D0D0D0';
+  // Handle pressing a scholarship item
+  const handlePress = (scholarship: any) => {
+    const url = `https://www.ufl.edu/scholarships/${scholarship.id}`; // Example link structure for each scholarship
+    Linking.openURL(url).catch((err) => console.error("Couldn't load the page", err));
+  };
 
   return (
-    <SafeAreaView style={[styles.safeArea, { backgroundColor: headerBackgroundColor }]}>
-      <ScrollView 
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollViewContent}
-      >
-        <ThemedView style={styles.container}>
-          <ThemedView style={styles.titleContainer}>
-            <ThemedText type="title">Scholarship Hub</ThemedText>
-          </ThemedView>
+    <SafeAreaView style={styles.container}>
+      {/* Search Bar */}
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Search Scholarships..."
+        value={searchQuery}
+        onChangeText={handleSearch}
+      />
 
-          <TextInput
-            style={styles.searchBar}
-            placeholder="Search Scholarships..."
-            placeholderTextColor="#888"
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-          />
-
-          {renderFilters()}
-
-          {error ? (
-            <ThemedText style={styles.errorText}>{error}</ThemedText>
-          ) : loading ? (
-            <ActivityIndicator size="large" color="#000" style={styles.loader} />
-          ) : (
-            <FlatList
-              data={filteredScholarships}
-              keyExtractor={(item) => item.id}
-              renderItem={({ item }) => (
-                <ThemedView style={styles.scholarshipItem}>
-                  <ThemedText style={styles.scholarshipName}>{item.name}</ThemedText>
-                  {item.college && (
-                    <ThemedText style={styles.scholarshipDetails}>College: {item.college}</ThemedText>
-                  )}
-                  {item.year && (
-                    <ThemedText style={styles.scholarshipDetails}>Year: {item.year}</ThemedText>
-                  )}
-                </ThemedView>
-              )}
-              ListEmptyComponent={
-                <ThemedText style={styles.emptyText}>No scholarships found</ThemedText>
-              }
-            />
+      {/* Loading indicator or list */}
+      {loading ? (
+        <ActivityIndicator size="large" color="#000" />
+      ) : (
+        <FlatList
+          data={filteredScholarships}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.scholarshipItem}
+              onPress={() => handlePress(item)}
+            >
+              <Text style={styles.scholarshipName}>{item.name}</Text>
+              <Text style={styles.scholarshipDescription}>{item.description}</Text>
+            </TouchableOpacity>
           )}
-        </ThemedView>
-      </ScrollView>
+          ListEmptyComponent={<Text>No scholarships found</Text>}
+        />
+      )}
     </SafeAreaView>
   );
-}
+};
 
+// Styling for the Scholarship Screen
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollViewContent: {
-    flexGrow: 1,
-  },
   container: {
     flex: 1,
     padding: 16,
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 16,
-    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
   },
   searchBar: {
     height: 40,
     borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 10,
+    paddingLeft: 8,
+    borderRadius: 5,
     marginBottom: 16,
-    color: '#000',
     backgroundColor: '#fff',
   },
-  filtersContainer: {
-    marginBottom: 16,
-    gap: 12,
-  },
   scholarshipItem: {
-    padding: 12,
-    borderRadius: 8,
+    padding: 16,
+    backgroundColor: '#fff',
     marginBottom: 8,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
   },
   scholarshipName: {
-    fontSize: 16,
-    fontWeight: '500',
+    fontSize: 18,
+    fontWeight: 'bold',
     marginBottom: 4,
   },
-  scholarshipDetails: {
+  scholarshipDescription: {
     fontSize: 14,
     color: '#666',
   },
-  loader: {
-    marginTop: 20,
-  },
-  errorText: {
-    color: 'red',
-    textAlign: 'center',
-    marginTop: 20,
-  },
-  emptyText: {
-    textAlign: 'center',
-    marginTop: 20,
-  },
 });
+
+export default ScholarshipScreen;
