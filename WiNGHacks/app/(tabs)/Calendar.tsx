@@ -12,7 +12,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#aae6ca', dark: '#A1CEDC' }}
+      headerBackgroundColor={{ light: '#aae6ca', dark: '#aae6ca' }}
       headerImage={
         <Image
           source={require('@/assets/images/calendarpic.png')}  // Replace with your image path
@@ -20,76 +20,81 @@ export default function TabTwoScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Calendar</ThemedText>
+        <ThemedText type="title">Student Orgs</ThemedText>
       </ThemedView>
-      <ThemedText>Want access to upcoming scholarship? You're in the right place!.</ThemedText>
-      <Collapsible title="File-based routing">
+      <ThemedText>Want to find a space where you belong? Check out these student orgs down below to see their unique opportunities!!</ThemedText>
+      
+      <Collapsible title="ColorStack">
         <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+          ColorStack is a safe space for Black and Latinx CS students. In their slack, they offer help on homework and give overall CS advice!!
+          If you're looking for an opportunity to network, you can submit your resume with some of ColorStack's partner companies!! For more information, visit
+          their website down below.
         </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ExternalLink href="https://colorstack-website-frontend.vercel.app/">
+          <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
+      <Collapsible title="CSK">
         <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+          CSK, known as Computer Science Kickstart, is a club to help incoming freshman females become more confident 
+          in their technical skills and ability to grow in the field of STEM!! For more information, visit
+          their website down below.
         </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
         <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
+          <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Custom fonts">
+      <Collapsible title="SASE">
         <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
+          SASE, known as the Society of Asian Scientists and Engineers, is a club comitted to facilating purposeful connections across cultures 
+          and to empowering Asian professionals in science and engineering!! They provide a nurturing learning environment for members to obtain 
+          relative skills and knowledge to succeed in life after college. For more information, visit
+          their website down below.
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ExternalLink href="https://ufsase.com/events">
+          <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Light and dark mode components">
+      <Collapsible title="SHPE">
         <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
+          SPHE, known as the Society of Hispanic Professional Engineers, strives to provide an environment for Hispanics studying in the 
+          STEM field. As a society, SPHE works to enrich members with opportunites to participate in outreach, corporate exposition meetings, academic
+          programs, and non-technical events. For more information, visit
+          their website down below.
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ExternalLink href="https://www.shpeuf.com/calendar">
+          <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Animations">
+      <Collapsible title="SWE">
         <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText>{' '}
-          library to create a waving hand animation.
+          SWE, known as the Society of Women Engineers, aims to encourage UF's female engineering students to reach their full potential as 
+          engineers and leaders. They host workshops, create design teams, and coordinate career fairs throughout the school year. For more information, visit
+          their website down below.
         </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
+        <ExternalLink href="https://uf.swe.org/">
+          <ThemedText type="link">Info Link</ThemedText>
+        </ExternalLink>
+      </Collapsible>
+      <Collapsible title="WECE">
+        <ThemedText>
+          WECE, known as Women in Electrical and Computer Engineering, endeavors to create a community where women could seek support and advice reagarding their academic, professional and personal lives!! They acomplish 
+          this through holding coporate events, technical activities, and dual mentorship programs. For more information, visit
+          their website down below.
+        </ThemedText> 
+        <ExternalLink href="http://www.wece.ece.ufl.edu/">
+          <ThemedText type="link">Info Link</ThemedText>
+        </ExternalLink>
+      </Collapsible>
+      <Collapsible title="WiCSE">
+        <ThemedText>
+          WiCSE, known as Women in Computer Science and Engineering, is a club that focuses on providing women opportunites to thrive in the world of computer
+          science. They host technical workshops, create design teams, and participate in outreach with the local Gainesville community! For more information, visit
+          their website down below.
+        </ThemedText>
+        <ExternalLink href="https://ufwicse.com/events">
+          <ThemedText type="link">Info Link</ThemedText>
+        </ExternalLink>
       </Collapsible>
     </ParallaxScrollView>
   );
