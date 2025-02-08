@@ -54,7 +54,7 @@ export default function HomeScreen() {
           source={require('@/assets/images/profile.png')}
           style={styles.buttonImage}
         />
-        <ThemedText type="profile">View Your Profile!</ThemedText>
+        <ThemedText type="profile">View Your Profile</ThemedText>
       </TouchableOpacity>
       
 
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
   stepContainer: {
     gap: 8,
-    marginBottom: 8,
+    marginBottom: 12,
   },
   reactLogo: {
     height: 150,
@@ -119,8 +119,8 @@ const styles = StyleSheet.create({
     left: 10,
   },
   buttonImage: {
-    height: 50,
-    width: 50,
+    height: 30,
+    width: 30,
     bottom: -20,
     left: -120,
   },

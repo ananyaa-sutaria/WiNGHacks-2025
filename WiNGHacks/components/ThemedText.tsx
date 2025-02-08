@@ -66,8 +66,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fffff',
     fontWeight: 'bold',
-    bottom: 24,
-    left: 12,
+    bottom: 15,
+    left: 15,
+    fontFamily: 'Times', 
   },
   centered: {
     textAlign: 'center', // This centers the title text
