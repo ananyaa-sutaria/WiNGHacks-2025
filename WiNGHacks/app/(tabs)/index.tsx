@@ -24,7 +24,7 @@ export default function HomeScreen() {
     navigation.navigate('Calendar'); // Ensure 'Chatbot' is part of your RootTabParamList type
   };
   const navigateToAScholarship = () => {
-    navigation.navigate('Calendar'); // Ensure 'Chatbot' is part of your RootTabParamList type
+    navigation.navigate('Scholarship'); // Ensure 'Chatbot' is part of your RootTabParamList type
   };
   return (
     <ParallaxScrollView
