@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   profile: {
-    fontSize: 32,
+    fontSize: 50,
   },
   link: {
     lineHeight: 30,

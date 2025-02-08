@@ -41,12 +41,19 @@ export default function HomeScreen() {
         <ThemedText style={styles.headerOverlayText}>Welcome, USER!</ThemedText>
       </ThemedView>
     }>
-       <TouchableOpacity style={styles.profileButtom} onPress={navigateToProfile}>
-        <ThemedText type="profile">View Your Profile!</ThemedText>
-      </TouchableOpacity>
+       
     <ThemedView style={styles.titleContainer}>
       <ThemedText type="title">Welcome!</ThemedText>
       <HelloWave />
+  
+    </ThemedView>
+
+    <ThemedView style={styles.stepContainer}>
+    <TouchableOpacity style={styles.profileButtom} onPress={navigateToProfile}>
+        <ThemedText type="profile">View Your Profile!</ThemedText>
+      </TouchableOpacity>
+      
+
     </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Ask KAPA:</ThemedText>
