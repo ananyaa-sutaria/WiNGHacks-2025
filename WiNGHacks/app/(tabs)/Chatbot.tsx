@@ -9,8 +9,9 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
   return (
+    
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '##ffcc99', dark: '#7cc9e6' }}
+      headerBackgroundColor={{ light: '##ffcc99', dark: '#b9dcff' }}
       headerImage={
         <Image
           source={require('@/assets/images/chatbot.png')}  // Replace with your image path
@@ -18,10 +19,10 @@ export default function TabTwoScreen() {
         />
         
       }>
-      
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Chat Bot</ThemedText>
       </ThemedView>
+      
       <ThemedText>Have any STEM related questions to ask? Ask out ChatBot, KAPA!</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     width: '45%',
     height: 200,
     bottom: 10,
-    left: 10,
+    left:107,
     position: 'absolute',
   },
   titleContainer: {
