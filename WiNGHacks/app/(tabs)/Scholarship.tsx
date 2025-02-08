@@ -22,6 +22,7 @@ interface Scholarship {
   name: string;
   college?: string;
   year?: number;
+  description?: string;
 }
 
 // Custom Dropdown Component
@@ -123,6 +124,8 @@ export default function ScholarshipScreen() {
           throw new Error('Failed to fetch scholarships');
         }
         const data: Scholarship[] = await response.json();
+        // Log the data to inspect the structure
+        console.log('Fetched scholarships:', data);
         setScholarships(data);
       } catch (error) {
         console.error('Error fetching scholarships:', error);
@@ -136,7 +139,10 @@ export default function ScholarshipScreen() {
   }, []);
 
   const filteredScholarships = scholarships.filter(scholarship => {
-    const matchesSearch = scholarship.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const searchText = searchQuery.toLowerCase();
+    const matchesSearch =
+      scholarship.name.toLowerCase().includes(searchText) ||
+      (scholarship.description && scholarship.description.toLowerCase().includes(searchText));
     const matchesCollege = selectedCollege === "All Colleges" || scholarship.college === selectedCollege;
     const matchesYear = selectedYear === "All Years" || scholarship.year === parseInt(selectedYear);
     return matchesSearch && matchesCollege && matchesYear;
@@ -169,7 +175,8 @@ export default function ScholarshipScreen() {
       >
         <ThemedView style={styles.container}>
           <ThemedView style={styles.titleContainer}>
-            <ThemedText type="title">Scholarship Hub</ThemedText>
+            <ThemedText type="title" style={styles.centeredText}>Scholarship Hub</ThemedText>
+            <ThemedText style={[styles.centeredText, { marginTop: 8 }]}>Find your perfect match! 🔎</ThemedText>
           </ThemedView>
 
           <TextInput
@@ -217,7 +224,7 @@ export default function ScholarshipScreen() {
           </TouchableOpacity>
           <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
           <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
-              Scholarship 2
+            UF TRiO Student Support 
             </ThemedText>
             <ThemedText> Deadline: Febraury 28</ThemedText>
           </TouchableOpacity>
@@ -226,6 +233,12 @@ export default function ScholarshipScreen() {
               Scholarship 3
             </ThemedText>
             <ThemedText> Deadline: March 10</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+          <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
+              Scholarship 4
+            </ThemedText>
+            <ThemedText> Deadline: April 7</ThemedText>
           </TouchableOpacity>
         </ThemedView>
       </ScrollView>
@@ -248,10 +261,8 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 16,
     alignItems: 'center',
+    marginBottom: 16,
   },
   searchBar: {
     height: 40,
@@ -348,5 +359,8 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontSize: 15,
     fontWeight: '500',
+  },
+  centeredText: {
+    textAlign: 'center',
   },
 });
