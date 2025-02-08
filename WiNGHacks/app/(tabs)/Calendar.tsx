@@ -12,7 +12,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#CBC3E3', dark: '#FF8C00' }}
+      headerBackgroundColor={{ light: '#98fb98', dark: '#2e8b57' }}
       headerImage={
         <Image
           source={require('@/assets/images/calendarpic.png')}  // Replace with your image path
@@ -22,7 +22,7 @@ export default function TabTwoScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Calendar</ThemedText>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
+      <ThemedText>Want access to upcoming scholarship? You're in the right place!.</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{' '}
@@ -97,7 +97,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: '#2e8b57',
     width: '40%',
     height: 150,
     bottom: 35,
