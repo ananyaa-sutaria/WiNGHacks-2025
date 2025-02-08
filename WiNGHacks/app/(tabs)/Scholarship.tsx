@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: '#000', // Changed to black
     fontSize: 24,
-git     fontStyle: 'italic', // Italicized text
+    fontStyle: 'italic', // Italicized text
   },
   regularText: {
     color: '#000', // Changed to black
@@ -123,8 +123,9 @@ git     fontStyle: 'italic', // Italicized text
   scholarshipItem: {
     padding: 20,
     backgroundColor: '#fff',
-    marginBottom: 8,
-    borderRadius: 8,
+    marginBottom: 16, // Increased marginBottom for more space
+    marginHorizontal: 16, // Added horizontal margin for spacing
+    borderRadius: 18, // Increased borderRadius for more rounded corners
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
