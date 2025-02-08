@@ -59,16 +59,11 @@ export default function HomeScreen() {
       <ThemedView> 
       <ThemedText type="subtitle">View Scholarships:</ThemedText>
       <TouchableOpacity style={styles.linkButton} onPress={navigateToAScholarship}>
-        <ThemedText type="link">View Scholarships!</ThemedText>
+        <ThemedText type="link">Navigate to Scholarships!</ThemedText>
         
       </TouchableOpacity>
       </ThemedView>
-      
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
+     
         
       
     </ParallaxScrollView>
