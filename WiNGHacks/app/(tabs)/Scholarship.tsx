@@ -171,7 +171,12 @@ export default function ScholarshipScreen() {
   const openTrio = () => {
     Linking.openURL('https://oas.aa.ufl.edu/programs/uf-student-support-services/trio-honor-society/'); // Link to Hispanic Scholarship Fund
   };
- 
+  const openSwe = () => {
+    Linking.openURL('https://swe.org/scholarships-timeline/'); // Link to Hispanic Scholarship Fund
+  };
+  const openMFOS = () => {
+    Linking.openURL("https://www.sfa.ufl.edu/mfos/#:~:text=The%20Machen%20Florida%20Opportunity%20Scholarship,have%20earned%20a%20bachelor's%20degree."); // Link to Hispanic Scholarship Fund
+  };
 
   const headerBackgroundColor = colorScheme === 'dark' ? '#353636' : '#D0D0D0';
 
@@ -237,15 +242,15 @@ export default function ScholarshipScreen() {
             </ThemedText>
             <ThemedText> Deadline: Febraury 28</ThemedText>
           </TouchableOpacity>
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+          <TouchableOpacity style={styles.button} onPress={openSwe}>
           <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
-              Scholarship 3
+              Society of Women Engineers
             </ThemedText>
-            <ThemedText> Deadline: March 10</ThemedText>
+            <ThemedText> Deadline: Various Dates</ThemedText>
           </TouchableOpacity>
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+          <TouchableOpacity style={styles.button} onPress={openMFOS}>
           <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
-              Scholarship 4
+              Machen Florida Opportunity Scholarship
             </ThemedText>
             <ThemedText> Deadline: April 7</ThemedText>
           </TouchableOpacity>
