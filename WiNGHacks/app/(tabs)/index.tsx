@@ -38,12 +38,12 @@ export default function HomeScreen() {
           source={require('@/assets/images/profile.png')}
           style={styles.reactLogo}
         />
-        <ThemedText style={styles.headerOverlayText}>Welcome, USER!</ThemedText>
+        <ThemedText style={styles.headerOverlayText}>Hello, USER!</ThemedText>
       </ThemedView>
     }>
        
     <ThemedView style={styles.titleContainer}>
-      <ThemedText type="title">Welcome!</ThemedText>
+      <ThemedText type="title">Explore GatorGuide</ThemedText>
       <HelloWave />
   
     </ThemedView>
@@ -60,7 +60,6 @@ export default function HomeScreen() {
 
     </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Ask KAPA:</ThemedText>
         <TouchableOpacity style={styles.linkButton} onPress={navigateToChatbot}>
         <Image
           source={require('@/assets/images/chatbot.png')}
@@ -72,7 +71,6 @@ export default function HomeScreen() {
         
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">View Student Org Calendar:</ThemedText>
         <TouchableOpacity style={styles.linkButton} onPress={navigateToCalendar}>
         <Image
           source={require('@/assets/images/calendarpic.png')}
@@ -82,10 +80,9 @@ export default function HomeScreen() {
       </TouchableOpacity>
       </ThemedView>
       <ThemedView> 
-      <ThemedText type="subtitle">View Scholarships:</ThemedText>
       <TouchableOpacity style={styles.linkButton} onPress={navigateToAScholarship}>
       <Image
-          source={require('@/assets/images/calendarpic.png')}
+          source={require('@/assets/images/scholarship.png')}
           style={styles.buttonImage}
         />
         <ThemedText type="profile">View Scholarships</ThemedText>
