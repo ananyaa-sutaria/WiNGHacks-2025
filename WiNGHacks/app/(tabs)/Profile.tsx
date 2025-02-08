@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     padding: 15,         
     left: 12,         // Add some padding around the text
     borderRadius: 0,              // Optional: Add rounded corners
-    fontSize: 20,
+    fontSize: 16,
     width: '90%',       
     textAlign: 'left',
 
