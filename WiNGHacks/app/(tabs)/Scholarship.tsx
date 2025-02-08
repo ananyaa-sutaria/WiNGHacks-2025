@@ -39,10 +39,16 @@ const ScholarshipScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Scholarship Hub</Text>
+      </View>
+
       {/* Search Bar */}
       <TextInput
         style={styles.searchBar}
         placeholder="Search Scholarships..."
+        placeholderTextColor="black"
         value={searchQuery}
         onChangeText={handleSearch}
       />
@@ -75,7 +81,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#b3d9ff',
+  },
+  header: {
+    backgroundColor: '#A1CEDC',  // Green background for the header
+    padding: 50,
+    borderRadius: 0,
+    marginBottom: 16,
+    alignItems: 'center',
+  },
+  headerText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   searchBar: {
     height: 40,
@@ -85,9 +103,10 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 16,
     backgroundColor: '#fff',
+    marginTop: 40, // Added marginTop to move it down
   },
   scholarshipItem: {
-    padding: 16,
+    padding: 20,
     backgroundColor: '#fff',
     marginBottom: 8,
     borderRadius: 8,
