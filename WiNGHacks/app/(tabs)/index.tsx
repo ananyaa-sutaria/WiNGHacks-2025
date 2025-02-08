@@ -43,9 +43,22 @@ export default function HomeScreen() {
     }>
        
     <ThemedView style={styles.titleContainer}>
-      <ThemedText type="title">Explore GatorGuide</ThemedText>
+      <ThemedText type="title">Welcome to GatorGuide</ThemedText>
       <HelloWave />
   
+    </ThemedView>
+    <ThemedView style={styles.stepContainer}>
+      <ThemedText type="subtitle">About GatorGuide</ThemedText>
+      <ThemedText type = "default">
+      GatorGuide is a student-developed application designed to assist STEM students in organizing their academic endeavors. T
+      he app provides valuable information and calendars for STEM-related student organizations at the University of Florida, as well as scholarships 
+      tailored to your identity and interests. Additionally, GatorGuide features KAPA, an AI-powered tool dedicated to addressing your personal questions and providing guidance.
+
+
+
+
+      </ThemedText>
+
     </ThemedView>
 
     <ThemedView style={styles.stepContainer}>
@@ -143,16 +156,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
     shadowOpacity: 0.3,           // Shadow opacity
     shadowRadius: 10, // Optional button background color
-    borderRadius: 15,
+    borderRadius: 5,
     
     
   },
   profileButtom:{
     marginTop: 0,
     alignItems: 'center',
-    padding: 0,
+    padding: -6,
     backgroundColor: '#84b6c5', // Optional button background color
-    borderRadius: 15,
+    borderRadius: 5,
     fontWeight: 'bold',
     shadowColor: '#000',          // Shadow color (black)
     shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)

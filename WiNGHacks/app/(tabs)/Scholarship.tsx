@@ -1,5 +1,3 @@
-import { Link } from 'expo-router';
-import { ExternalLink } from '@/components/ExternalLink';
 import { useState, useEffect } from 'react';
 import { 
   StyleSheet, 
@@ -7,161 +5,38 @@ import {
   FlatList, 
   ActivityIndicator,
   View,
-  ScrollView,
-  Platform,
-  SafeAreaView,
-  useColorScheme,
-  Pressable,
-  Modal,
   TouchableOpacity,
-  Button
+  Linking,
+  SafeAreaView,
+  Text,
+  ActivityIndicator
 } from 'react-native';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 
-interface Scholarship {
-  id: string;
-  name: string;
-  college?: string;
-  year?: number;
-}
-
-// Custom Dropdown Component
-const Dropdown = ({ 
-  label, 
-  data, 
-  value, 
-  onSelect 
-}: { 
-  label: string; 
-  data: string[]; 
-  value: string; 
-  onSelect: (item: string) => void; 
-}) => {
-  const [visible, setVisible] = useState(false);
-
-  return (
-    <View style={styles.dropdownContainer}>
-      <ThemedText style={styles.dropdownLabel}>{label}</ThemedText>
-      <Pressable
-        style={styles.dropdownButton}
-        onPress={() => setVisible(true)}
-      >
-        <ThemedText style={styles.dropdownButtonText}>{value}</ThemedText>
-      </Pressable>
-
-      <Modal
-        visible={visible}
-        transparent
-        animationType="slide"
-        onRequestClose={() => setVisible(false)}
-      >
-        <TouchableOpacity 
-          style={styles.modalOverlay}
-          activeOpacity={1} 
-          onPress={() => setVisible(false)}
-        >
-          <View style={styles.modalContent}>
-            <ScrollView>
-              {data.map((item) => (
-                <TouchableOpacity
-                  key={item}
-                  style={styles.modalItem}
-                  onPress={() => {
-                    onSelect(item);
-                    setVisible(false);
-                  }}
-                >
-                  <ThemedText style={styles.modalItemText}>{item}</ThemedText>
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-          </View>
-        </TouchableOpacity>
-      </Modal>
-    </View>
-  );
-};
-
-// UF Colleges based on their website
-const UF_COLLEGES = [
-  "All Colleges",
-  "Agricultural and Life Sciences",
-  "Arts",
-  "Business",
-  "Dental Medicine",
-  "Design, Construction and Planning",
-  "Education",
-  "Engineering",
-  "Health and Human Performance",
-  "Journalism and Communications",
-  "Law",
-  "Liberal Arts and Sciences",
-  "Medicine",
-  "Nursing",
-  "Pharmacy",
-  "Public Health and Health Professions",
-  "Veterinary Medicine"
-];
-
-const STUDY_YEARS = ["All Years", "1", "2", "3", "4", "5"];
-
-export default function ScholarshipScreen() {
+const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [scholarships, setScholarships] = useState<Scholarship[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedCollege, setSelectedCollege] = useState("All Colleges");
-  const [selectedYear, setSelectedYear] = useState("All Years");
-  const [error, setError] = useState<string | null>(null);
-  const colorScheme = useColorScheme();
+  const [scholarships, setScholarships] = useState([
+    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
+    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
+    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
+    // You can add more mock data or real data here
+  ]);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchScholarships = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const response = await fetch('https://api.example.com/scholarships');
-        if (!response.ok) {
-          throw new Error('Failed to fetch scholarships');
-        }
-        const data: Scholarship[] = await response.json();
-        setScholarships(data);
-      } catch (error) {
-        console.error('Error fetching scholarships:', error);
-        setError('Failed to load scholarships. Please try again later.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Handle text input change and search
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+  };
 
-    fetchScholarships();
-  }, []);
-
-  const filteredScholarships = scholarships.filter(scholarship => {
-    const matchesSearch = scholarship.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCollege = selectedCollege === "All Colleges" || scholarship.college === selectedCollege;
-    const matchesYear = selectedYear === "All Years" || scholarship.year === parseInt(selectedYear);
-    return matchesSearch && matchesCollege && matchesYear;
-  });
-
-  const renderFilters = () => (
-    <View style={styles.filtersContainer}>
-      <Dropdown
-        label="College"
-        data={UF_COLLEGES}
-        value={selectedCollege}
-        onSelect={setSelectedCollege}
-      />
-      <Dropdown
-        label="Year"
-        data={STUDY_YEARS}
-        value={selectedYear}
-        onSelect={setSelectedYear}
-      />
-    </View>
+  // Filter scholarships based on the search query
+  const filteredScholarships = scholarships.filter(scholarship =>
+    scholarship.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const headerBackgroundColor = colorScheme === 'dark' ? '#353636' : '#D0D0D0';
+  // Handle pressing a scholarship item
+  const handlePress = (scholarship: any) => {
+    const url = `https://www.ufl.edu/scholarships/${scholarship.id}`; // Example link structure for each scholarship
+    Linking.openURL(url).catch((err) => console.error("Couldn't load the page", err));
+  };
 
   return (
     <SafeAreaView style={[styles.safeArea, { backgroundColor: headerBackgroundColor }]}>
@@ -211,110 +86,60 @@ export default function ScholarshipScreen() {
             />
           )}
 
-          <TouchableOpacity style = {styles.button}>
-          <ExternalLink href="https://docs.expo.dev/router/introduction">
-                    <ThemedText type="link">Learn more</ThemedText>
-                  </ExternalLink>
-          </TouchableOpacity>
-          
-
-          <TouchableOpacity style = {styles.button}>
-            <Link href = "https://docs.expo.dev/router/introduction" target = "_blank">
-            <ThemedText style = {styles.buttonText}>Go to scholarship</ThemedText></Link>
-          </TouchableOpacity>
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('https://docs.expo.dev/router/introduction')}>
-            <ThemedText style = {styles.buttonText}>Go to scholarship</ThemedText>
+          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+            <ThemedText style = {styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
           </TouchableOpacity>
         </ThemedView>
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
+// Styling for the Scholarship Screen
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  scrollViewContent: {
-    flexGrow: 1,
-  },
   container: {
     flex: 1,
     padding: 16,
+    backgroundColor: '#b3d9ff',
   },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
+  header: {
+    backgroundColor: '#A1CEDC',  // Green background for the header
+    padding: 50,
+    borderRadius: 0,
     marginBottom: 16,
     alignItems: 'center',
+  },
+  headerText: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   searchBar: {
     height: 40,
     borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 10,
+    paddingLeft: 8,
+    borderRadius: 5,
     marginBottom: 16,
-    color: '#000',
     backgroundColor: '#fff',
-  },
-  filtersContainer: {
-    marginBottom: 16,
-    gap: 12,
-  },
-  dropdownContainer: {
-    marginBottom: 8,
-  },
-  dropdownLabel: {
-    marginBottom: 4,
-    fontSize: 14,
-    fontWeight: '500',
-  },
-  dropdownButton: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 8,
-    padding: 12,
-    backgroundColor: '#fff',
-  },
-  dropdownButtonText: {
-    fontSize: 16,
-  },
-  modalOverlay: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    padding: 20,
-  },
-  modalContent: {
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    maxHeight: '80%',
-  },
-  modalItem: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#eee',
-  },
-  modalItemText: {
-    fontSize: 16,
+    marginTop: 40, // Added marginTop to move it down
   },
   scholarshipItem: {
-    padding: 12,
-    borderRadius: 8,
+    padding: 20,
+    backgroundColor: '#fff',
     marginBottom: 8,
-    borderWidth: 1,
-    borderColor: '#ccc',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
   },
   scholarshipName: {
-    fontSize: 16,
-    fontWeight: '500',
+    fontSize: 18,
+    fontWeight: 'bold',
     marginBottom: 4,
   },
-  scholarshipDetails: {
+  scholarshipDescription: {
     fontSize: 14,
     color: '#666',
   },
@@ -334,16 +159,17 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 20,
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#FFFFFF', // White background
     alignItems: 'center',
+    borderRadius: 25, // Rounded edges
+    shadowColor: '#000', // Optional shadow for depth
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
   },
   buttonText: {
     color: '#000000',
     fontSize: 15,
     fontWeight: '500',
-  },
-  linkText: {
-    color: '#ffffff',
-    fontSize: 16,
   },
 });

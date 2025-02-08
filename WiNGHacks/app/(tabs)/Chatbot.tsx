@@ -1,4 +1,4 @@
-import { StyleSheet, Image, TextInput, Platform, View } from 'react-native';
+import { StyleSheet, Image, TextInput, Platform, View, TouchableOpacity} from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -7,6 +7,11 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import React, { useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native'; // Import the navigation hook
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import the correct type
+import { RootTabParamList } from './types'; // Import the type for your screens
+
+
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
@@ -19,8 +24,7 @@ export default function TabTwoScreen() {
 
   const generateContent = async (input: string) => {
     setLoading(true);
-
-
+    
     try {
       const genAI = new GoogleGenerativeAI("AIzaSyBpyKAe7vUEVZ89A2HfmPHk6A1tAhrkchE");
       const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
@@ -46,7 +50,7 @@ export default function TabTwoScreen() {
   return (
     
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '##ffcc99', dark: '#aae6ca' }}
+      headerBackgroundColor={{ light: '##aae6ca', dark: '#A1CEDC' }}
       headerImage={
         <Image
           source={require('@/assets/images/chatbot.png')}  // Replace with your image path
@@ -62,6 +66,7 @@ export default function TabTwoScreen() {
       <TextInput
       style = {styles.userInput}
       placeholder = "Type your question: "
+      placeholderTextColor="black"
       value = {userInput}
       onChangeText = {handleChangeText}
       returnKeyType = "search"
@@ -78,10 +83,6 @@ export default function TabTwoScreen() {
   )}
       </View>
 
-
-
-
-      
       
    
     </ParallaxScrollView>
@@ -89,9 +90,10 @@ export default function TabTwoScreen() {
 }
 
 
+
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: '#fffff',
     width: '45%',
     height: 200,
     bottom: 10,
@@ -115,7 +117,7 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderWidth: 2,
     paddingLeft: 10,
-    color:'fffff',
+    color:'black',
   },
   
 
