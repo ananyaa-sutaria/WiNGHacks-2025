@@ -141,8 +141,14 @@ const styles = StyleSheet.create({
     marginTop: 0,
     alignItems: 'center',
     padding: 0,
-    backgroundColor: '#A1CEDC', // Optional button background color
+    backgroundColor: '#A1CEDC', 
+    shadowColor: '#000',          // Shadow color (black)
+    shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
+    shadowOpacity: 0.3,           // Shadow opacity
+    shadowRadius: 10, // Optional button background color
     borderRadius: 15,
+    
+    
   },
   profileButtom:{
     marginTop: 0,
@@ -151,5 +157,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#84b6c5', // Optional button background color
     borderRadius: 15,
     fontWeight: 'bold',
+    shadowColor: '#000',          // Shadow color (black)
+    shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
+    shadowOpacity: 0.3,           // Shadow opacity
+    shadowRadius: 10, 
   },
 });
