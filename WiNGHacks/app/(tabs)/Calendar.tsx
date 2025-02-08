@@ -12,7 +12,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#98fb98', dark: '#2e8b57' }}
+      headerBackgroundColor={{ light: '#aae6ca', dark: '#aae6ca' }}
       headerImage={
         <Image
           source={require('@/assets/images/calendarpic.png')}  // Replace with your image path
