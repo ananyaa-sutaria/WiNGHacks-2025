@@ -10,7 +10,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '##ffcc99', dark: '#ffcc99' }}
+      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
       headerImage={
         <IconSymbol
           size={310}
@@ -19,11 +19,10 @@ export default function TabTwoScreen() {
           style={styles.headerImage}
         />
       }>
-      
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Chat Bot</ThemedText>
+        <ThemedText type="title">Calendar</ThemedText>
       </ThemedView>
-      <ThemedText>Have any STEM related questions to ask? Ask out ChatBot, KAPA!</ThemedText>
+      <ThemedText>This app includes example code to help you get started.</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{' '}
