@@ -22,7 +22,8 @@ export function ThemedText({
       style={[
         { color },
         type === 'default' ? styles.default : undefined,
-        type === 'title' ? [styles.title] : undefined, // Center the title text        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
+        type === 'title' ? [styles.title, styles.centered] : undefined, // Center the title text         
+        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
         style,
@@ -56,5 +57,8 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
+  },
+  centered: {
+    textAlign: 'center', // This centers the title text
   },
 });
