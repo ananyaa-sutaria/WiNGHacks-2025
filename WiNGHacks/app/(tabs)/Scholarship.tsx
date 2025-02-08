@@ -39,6 +39,7 @@ const ScholarshipScreen = () => {
   };
 
   return (
+<<<<<<< HEAD
     <SafeAreaView style={[styles.safeArea, { backgroundColor: headerBackgroundColor }]}>
       <ScrollView 
         style={styles.scrollView}
@@ -56,6 +57,26 @@ const ScholarshipScreen = () => {
             value={searchQuery}
             onChangeText={setSearchQuery}
           />
+=======
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Scholarship Hub</Text>
+        <Text style={styles.headerText}>Find your perfect match! 🔎</Text>
+      </View>
+
+      {/* Regular text above the search bar */}
+      <Text style={styles.regularText}>A search feature to help you pay for the education you deserve</Text>
+
+      {/* Search Bar */}
+      <TextInput
+        style={styles.searchBar}
+        placeholder="Search Scholarships..."
+        placeholderTextColor="black"
+        value={searchQuery}
+        onChangeText={handleSearch}
+      />
+>>>>>>> cf44c66b53880ba690d5642abea6226d99712685
 
           {renderFilters()}
 
@@ -109,10 +130,21 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     alignItems: 'center',
   },
+  headerTitle: {
+    color: '#000', // Changed to black
+    fontSize: 32, // Increased font size
+    fontWeight: 'bold', // Bold font weight
+  },
   headerText: {
-    color: '#fff',
+    color: '#000', // Changed to black
     fontSize: 24,
-    fontWeight: 'bold',
+git     fontStyle: 'italic', // Italicized text
+  },
+  regularText: {
+    color: '#000', // Changed to black
+    fontSize: 18,
+    marginBottom: 16,
+    textAlign: 'center',
   },
   searchBar: {
     height: 40,
