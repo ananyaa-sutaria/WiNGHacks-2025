@@ -1,3 +1,5 @@
+import { Link } from 'expo-router';
+import { ExternalLink } from '@/components/ExternalLink';
 import { useState, useEffect } from 'react';
 import { 
   StyleSheet, 
@@ -209,8 +211,19 @@ export default function ScholarshipScreen() {
             />
           )}
 
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
-            <ThemedText style = {styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
+          <TouchableOpacity style = {styles.button}>
+          <ExternalLink href="https://docs.expo.dev/router/introduction">
+                    <ThemedText type="link">Learn more</ThemedText>
+                  </ExternalLink>
+          </TouchableOpacity>
+          
+
+          <TouchableOpacity style = {styles.button}>
+            <Link href = "https://docs.expo.dev/router/introduction" target = "_blank">
+            <ThemedText style = {styles.buttonText}>Go to scholarship</ThemedText></Link>
+          </TouchableOpacity>
+          <TouchableOpacity style = {styles.button} onPress = {() => alert('https://docs.expo.dev/router/introduction')}>
+            <ThemedText style = {styles.buttonText}>Go to scholarship</ThemedText>
           </TouchableOpacity>
         </ThemedView>
       </ScrollView>
@@ -321,17 +334,16 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 20,
-    backgroundColor: '#FFFFFF', // White background
+    backgroundColor: '#4CAF50',
     alignItems: 'center',
-    borderRadius: 25, // Rounded edges
-    shadowColor: '#000', // Optional shadow for depth
-    shadowOffset: { width: 0, height: 5 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
   },
   buttonText: {
     color: '#000000',
     fontSize: 15,
     fontWeight: '500',
+  },
+  linkText: {
+    color: '#ffffff',
+    fontSize: 16,
   },
 });
