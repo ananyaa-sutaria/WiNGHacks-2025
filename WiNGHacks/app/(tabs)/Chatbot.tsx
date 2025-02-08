@@ -46,7 +46,7 @@ export default function TabTwoScreen() {
   return (
     
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '##ffcc99', dark: '#aae6ca' }}
+      headerBackgroundColor={{ light: '##aae6ca', dark: '#A1CEDC' }}
       headerImage={
         <Image
           source={require('@/assets/images/chatbot.png')}  // Replace with your image path
@@ -91,7 +91,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: '#aae6ca',
     width: '45%',
     height: 200,
     bottom: 10,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderWidth: 2,
     paddingLeft: 10,
-    color:'fffff',
+    color:'black',
   },
   
 
