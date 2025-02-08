@@ -24,7 +24,13 @@ export default function TabTwoScreen() {
       </ThemedView>
       <ThemedText>Want to find a space where you belong? Check out these student orgs down below to see their unique opportunities!!</ThemedText>
       
-      <Collapsible title="ColorStack">
+      <ThemedView style={styles.colorStack}>
+          <Image
+              source={require('@/assets/images/colorstack.png')}
+              style={styles.firstOrg}
+            />
+            </ThemedView>
+        <Collapsible title="ColorStack"> 
         <ThemedText>
           ColorStack is a safe space for Black and Latinx CS students. In their slack, they offer help on homework and give overall CS advice!!
           If you're looking for an opportunity to network, you can submit your resume with some of ColorStack's partner companies!! For more information, visit
@@ -34,6 +40,14 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
+           
+
+      <ThemedView style={styles.studentOrg}>
+              <Image
+                source={require('@/assets/images/csk4.png')}
+                style={styles.firstOrg}
+              />
+            </ThemedView>
       <Collapsible title="CSK">
         <ThemedText>
           CSK, known as Computer Science Kickstart, is a club to help incoming freshman females become more confident 
@@ -44,6 +58,14 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
+
+      <ThemedView style={styles.studentOrg}>
+              <Image
+                source={require('@/assets/images/sase.png')}
+                style={styles.firstOrg}
+              />
+            </ThemedView>
+
       <Collapsible title="SASE">
         <ThemedText>
           SASE, known as the Society of Asian Scientists and Engineers, is a club comitted to facilating purposeful connections across cultures 
@@ -55,6 +77,14 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
+
+      <ThemedView style={styles.studentOrg}>
+              <Image
+                source={require('@/assets/images/shpe.png')}
+                style={styles.firstOrg}
+              />
+            </ThemedView>
+
       <Collapsible title="SHPE">
         <ThemedText>
           SPHE, known as the Society of Hispanic Professional Engineers, strives to provide an environment for Hispanics studying in the 
@@ -66,6 +96,14 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
+
+      <ThemedView style={styles.studentOrg}>
+              <Image
+                source={require('@/assets/images/swe2.png')}
+                style={styles.firstOrg}
+              />
+            </ThemedView>
+
       <Collapsible title="SWE">
         <ThemedText>
           SWE, known as the Society of Women Engineers, aims to encourage UF's female engineering students to reach their full potential as 
@@ -76,6 +114,14 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
+
+      <ThemedView style={styles.studentOrg}>
+              <Image
+                source={require('@/assets/images/wece2.ppng.png')}
+                style={styles.firstOrg}
+              />
+            </ThemedView>
+
       <Collapsible title="WECE">
         <ThemedText>
           WECE, known as Women in Electrical and Computer Engineering, endeavors to create a community where women could seek support and advice reagarding their academic, professional and personal lives!! They acomplish 
@@ -86,6 +132,14 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Info Link</ThemedText>
         </ExternalLink>
       </Collapsible>
+
+      <ThemedView style={styles.studentOrg}>
+              <Image
+                source={require('@/assets/images/wicse2.png')}
+                style={styles.firstOrg}
+              />
+            </ThemedView>
+
       <Collapsible title="WiCSE">
         <ThemedText>
           WiCSE, known as Women in Computer Science and Engineering, is a club that focuses on providing women opportunites to thrive in the world of computer
@@ -115,4 +169,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // Centers content vertically
     alignItems: 'center',
   },
+  firstOrg: {
+    color: '#A1CEDC',
+    fontSize: 14,
+    marginBottom: 8,
+  },
+  colorStack: {
+    alignItems: 'center',
+    backgroundColor: '#b3d9ff',
+    right: 5, // This is the color you're applying to the top of the header
+  },
+  studentOrg: {
+    alignItems: 'center',
+    paddingTop: 20,
+    right: 5,
+  }
+
 });
