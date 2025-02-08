@@ -46,7 +46,7 @@ export default function TabTwoScreen() {
   return (
     
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '##ffcc99', dark: '#aae6ca' }}
+      headerBackgroundColor={{ light: '##aae6ca', dark: '#aae6ca' }}
       headerImage={
         <Image
           source={require('@/assets/images/chatbot.png')}  // Replace with your image path
