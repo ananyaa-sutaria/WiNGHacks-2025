@@ -210,7 +210,7 @@ export default function ScholarshipScreen() {
           )}
 
           <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
-            <ThemedText style = {styles.buttonText}>Go to scholarhip</ThemedText>
+            <ThemedText style = {styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
           </TouchableOpacity>
         </ThemedView>
       </ScrollView>
@@ -321,8 +321,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingVertical: 12,
     paddingHorizontal: 20,
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#FFFFFF', // White background
     alignItems: 'center',
+    borderRadius: 25, // Rounded edges
+    shadowColor: '#000', // Optional shadow for depth
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
   },
   buttonText: {
     color: '#000000',
