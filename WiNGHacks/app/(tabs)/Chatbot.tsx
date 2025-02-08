@@ -19,6 +19,7 @@ export default function TabTwoScreen() {
           style={styles.headerImage}
         />
       }>
+      
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Chat Bot</ThemedText>
       </ThemedView>
