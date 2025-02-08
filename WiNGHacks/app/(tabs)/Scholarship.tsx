@@ -14,9 +14,9 @@ import {
 const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scholarships, setScholarships] = useState([
-    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
-    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
-    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
+    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students', deadline: 'February 8, 2025' },
+    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students', deadline: 'March 15, 2025' },
+    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students', deadline: 'April 20, 2025' },
     // You can add more mock data or real data here
   ]);
   const [loading, setLoading] = useState(false);
@@ -71,6 +71,7 @@ const ScholarshipScreen = () => {
             >
               <Text style={styles.scholarshipName}>{item.name}</Text>
               <Text style={styles.scholarshipDescription}>{item.description}</Text>
+              <Text style={styles.scholarshipDeadline}>Deadline: {item.deadline}</Text>
             </TouchableOpacity>
           )}
           ListEmptyComponent={<Text>No scholarships found</Text>}
@@ -139,6 +140,11 @@ const styles = StyleSheet.create({
   scholarshipDescription: {
     fontSize: 14,
     color: '#666',
+  },
+  scholarshipDeadline: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 8,
   },
 });
 
