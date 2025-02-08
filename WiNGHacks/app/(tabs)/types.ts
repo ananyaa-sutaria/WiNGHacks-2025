@@ -4,5 +4,6 @@ export type RootTabParamList = {
     Chatbot: undefined; // No parameters for the ChatBot screen
     Calendar: undefined;
     Scholarship: undefined;
+    Profile: undefined;
   };
   

@@ -5,7 +5,7 @@ import { useThemeColor } from '@/hooks/useThemeColor';
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'profile';
 };
 
 export function ThemedText({
@@ -26,6 +26,7 @@ export function ThemedText({
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
+        type === 'profile' ? styles.profile : undefined,
         style,
       ]}
       {...rest}
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   title: {
-    fontSize: 32,
+    fontSize: 30,
     textAlign: "center",
     fontWeight: 'bold',
     lineHeight: 32,
@@ -53,10 +54,21 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  
   link: {
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
+  },
+
+  profile: {
+    lineHeight: 40,
+    fontSize: 20,
+    color: '#fffff',
+    fontWeight: 'bold',
+    bottom: 15,
+    left: 15,
+    fontFamily: 'Times', 
   },
   centered: {
     textAlign: 'center', // This centers the title text

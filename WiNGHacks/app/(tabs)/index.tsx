@@ -18,13 +18,16 @@ export default function HomeScreen() {
 
   // Function to navigate to another tab
   const navigateToChatbot = () => {
-    navigation.navigate('Chatbot'); // Ensure 'Chatbot' is part of your RootTabParamList type
+    navigation.navigate('Chatbot'); 
   };
   const navigateToCalendar = () => {
-    navigation.navigate('Calendar'); // Ensure 'Chatbot' is part of your RootTabParamList type
+    navigation.navigate('Calendar'); 
   };
   const navigateToAScholarship = () => {
-    navigation.navigate('Calendar'); // Ensure 'Chatbot' is part of your RootTabParamList type
+    navigation.navigate('Scholarship'); 
+  };
+  const navigateToProfile = () => {
+    navigation.navigate('Profile'); 
   };
   return (
     <ParallaxScrollView
@@ -35,31 +38,54 @@ export default function HomeScreen() {
           source={require('@/assets/images/profile.png')}
           style={styles.reactLogo}
         />
-        <ThemedText style={styles.headerOverlayText}>Welcome, USER!</ThemedText>
+        <ThemedText style={styles.headerOverlayText}>Hello, USER!</ThemedText>
       </ThemedView>
     }>
+       
     <ThemedView style={styles.titleContainer}>
-      <ThemedText type="title">Welcome!</ThemedText>
+      <ThemedText type="title">Explore GatorGuide</ThemedText>
       <HelloWave />
+  
+    </ThemedView>
+
+    <ThemedView style={styles.stepContainer}>
+    <TouchableOpacity style={styles.profileButtom} onPress={navigateToProfile}>
+    <Image
+          source={require('@/assets/images/profile.png')}
+          style={styles.buttonImage}
+        />
+        <ThemedText type="profile">View Your Profile</ThemedText>
+      </TouchableOpacity>
+      
+
     </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Ask KAPA:</ThemedText>
         <TouchableOpacity style={styles.linkButton} onPress={navigateToChatbot}>
-        <ThemedText type="link">Navigate to KAPA!</ThemedText>
+        <Image
+          source={require('@/assets/images/chatbot.png')}
+          style={styles.buttonImage}
+        />
+        <ThemedText type="profile">Navigate to KAPA</ThemedText>
       </TouchableOpacity>
         
         
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">View Student Org Calendar:</ThemedText>
         <TouchableOpacity style={styles.linkButton} onPress={navigateToCalendar}>
-        <ThemedText type="link">Navigate to Calendar!</ThemedText>
+        <Image
+          source={require('@/assets/images/calendarpic.png')}
+          style={styles.buttonImage}
+        />
+        <ThemedText type="profile">Navigate to Calendars</ThemedText>
       </TouchableOpacity>
       </ThemedView>
       <ThemedView> 
-      <ThemedText type="subtitle">View Scholarships:</ThemedText>
       <TouchableOpacity style={styles.linkButton} onPress={navigateToAScholarship}>
-        <ThemedText type="link">Navigate to Scholarships!</ThemedText>
+      <Image
+          source={require('@/assets/images/scholarship.png')}
+          style={styles.buttonImage}
+        />
+        <ThemedText type="profile">View Scholarships</ThemedText>
         
       </TouchableOpacity>
       </ThemedView>
@@ -84,13 +110,19 @@ const styles = StyleSheet.create({
   },
   stepContainer: {
     gap: 8,
-    marginBottom: 8,
+    marginBottom: 12,
   },
   reactLogo: {
     height: 150,
     width: '40%',
     bottom: -55,
     left: 10,
+  },
+  buttonImage: {
+    height: 30,
+    width: 30,
+    bottom: -20,
+    left: -120,
   },
   headerOverlayText: {
     position: 'absolute',
@@ -103,10 +135,28 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   linkButton: {
-    marginTop: 20,
+    marginTop: 0,
     alignItems: 'center',
-    padding: 10,
-    backgroundColor: '#A1CEDC', // Optional button background color
-    borderRadius: 5,
+    padding: 0,
+    backgroundColor: '#A1CEDC', 
+    shadowColor: '#000',          // Shadow color (black)
+    shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
+    shadowOpacity: 0.3,           // Shadow opacity
+    shadowRadius: 10, // Optional button background color
+    borderRadius: 15,
+    
+    
+  },
+  profileButtom:{
+    marginTop: 0,
+    alignItems: 'center',
+    padding: 0,
+    backgroundColor: '#84b6c5', // Optional button background color
+    borderRadius: 15,
+    fontWeight: 'bold',
+    shadowColor: '#000',          // Shadow color (black)
+    shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
+    shadowOpacity: 0.3,           // Shadow opacity
+    shadowRadius: 10, 
   },
 });
