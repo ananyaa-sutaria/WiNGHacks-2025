@@ -111,10 +111,12 @@ const styles = StyleSheet.create({
     fontStyle: 'italic', // Italicized text
   },
   regularText: {
-    color: '#1E88E5', // Dark blue color
+    color: 'white', // Dark blue color
     fontSize: 18,
     marginBottom: 16,
     textAlign: 'center',
+    padding: 10,
+    fontWeight: "bold",
   },
   searchBar: {
     height: 40,

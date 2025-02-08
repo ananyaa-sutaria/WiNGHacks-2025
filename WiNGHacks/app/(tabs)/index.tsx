@@ -50,8 +50,7 @@ export default function HomeScreen() {
     <ThemedView style={styles.stepContainer}>
       <ThemedText type="subtitle">About GatorGuide</ThemedText>
       <ThemedText type = "default">
-      GatorGuide is a student-developed application designed to assist STEM students in organizing their academic endeavors. T
-      he app provides valuable information and calendars for STEM-related student organizations at the University of Florida, as well as scholarships 
+      GatorGuide is a student-developed application designed to assist STEM students in organizing their academic endeavors. The app provides valuable information and calendars for STEM-related student organizations at the University of Florida, as well as scholarships 
       tailored to your identity and interests. Additionally, GatorGuide features KAPA, an AI-powered tool dedicated to addressing your personal questions and providing guidance.
 
 
