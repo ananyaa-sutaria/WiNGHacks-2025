@@ -11,7 +11,7 @@ export default function TabTwoScreen() {
   return (
     
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '##ffcc99', dark: '#b9dcff' }}
+      headerBackgroundColor={{ light: '##ffcc99', dark: '#aae6ca' }}
       headerImage={
         <Image
           source={require('@/assets/images/chatbot.png')}  // Replace with your image path
@@ -20,10 +20,10 @@ export default function TabTwoScreen() {
         
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Chat Bot</ThemedText>
+        <ThemedText type="title">Meet KAPA!</ThemedText>
       </ThemedView>
       
-      <ThemedText>Have any STEM related questions to ask? Ask out ChatBot, KAPA!</ThemedText>
+      <ThemedText>Have any STEM related questions to ask? Ask out ChatBot, KAPA! KAPA uses Artifical Intelligence to answer your questions, pulling knowledge together from all over the internet!</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{' '}
