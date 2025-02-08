@@ -11,7 +11,12 @@ import {
   useColorScheme,
   Pressable,
   Modal,
+<<<<<<< HEAD
   TouchableOpacity
+=======
+  TouchableOpacity,
+  Button,
+>>>>>>> cea1e07 (Scholarship deadline)
 } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -207,6 +212,28 @@ export default function ScholarshipScreen() {
               nestedScrollEnabled={false}
             />
           )}
+<<<<<<< HEAD
+=======
+
+          <TouchableOpacity style={styles.button} onPress={() => alert('pressed')}>
+            <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
+              Hispanic Scholarship Fund
+            </ThemedText>
+            <ThemedText>Deadline: February 18</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+          <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
+              Scholarship 2
+            </ThemedText>
+            <ThemedText> Deadline: Febraury 28</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+          <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
+              Scholarship 3
+            </ThemedText>
+            <ThemedText> Deadline: March 10</ThemedText>
+          </TouchableOpacity>
+>>>>>>> cea1e07 (Scholarship deadline)
         </ThemedView>
       </ScrollView>
     </SafeAreaView>
@@ -312,4 +339,24 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 20,
   },
+<<<<<<< HEAD
+=======
+  button: {
+    marginTop: 20,
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    backgroundColor: '#FFFFFF', // White background
+    alignItems: 'center',
+    borderRadius: 18, // Rounded edges
+    shadowColor: '#000', // Optional shadow for depth
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+  buttonText: {
+    color: '#000000',
+    fontSize: 15,
+    fontWeight: '500',
+  },
+>>>>>>> cea1e07 (Scholarship deadline)
 });
