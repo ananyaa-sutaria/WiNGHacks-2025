@@ -14,10 +14,13 @@ import {
 const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scholarships, setScholarships] = useState([
-    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students', deadline: 'February 8, 2025' },
-    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students', deadline: 'March 15, 2025' },
-    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students', deadline: 'April 20, 2025' },
-    // You can add more mock data or real data here
+    { id: '1', name: 'Hispanic scholarship fund Scholarship', description: 'Empowers students with the knowledge and resources to successfully complete a higher education', deadline: 'February 8, 2025', url: "https://www.hsf.net/scholarship" },
+    { id: '2', name: 'SWE Scholarship', description: 'SWE scholarships empower women pursuing undergraduate and graduate degrees in engineering, engineering technology, and related fields.', deadline: 'March 15, 2025', url: "https://swe.org/scholarships/" },
+    { id: '3', name: 'Machen Florida Opportunity Scholarship', description: 'Assists historically low-income first-generation college students in meeting their college costs.', deadline: 'Rolling Deadline', url:"https://www.sfa.ufl.edu/mfos/" },
+    { id: '4', name: 'Out to Innovate - LGBTQ+', description: 'Award scholarships to LGBTQ+ students currently enrolled in STEM-related fields.', deadline: 'April 20, 2025', url:"https://oti.memberclicks.net/" },
+    { id: '5', name: 'Tata - Indian International Students', description: 'A need-based scholarship for Indian students to attend University in the United States.', deadline: 'April 20, 2025', url: "https://www.tatatrusts.org/our-work/individual-grants-programme/education-grants" },
+    { id: '6', name: 'UNCF - African Americans in STEM', description: 'A ten-year initiative designed to identify and provide scholarship and academic support for a total of 500 talented African American high school students who aspire to earn STEM degrees and to pursue careers in STEM fields.', deadline: 'May 1, 2025', url:'https://uncf.org/pages/stem-scholars-scholarship-overview'},
+    { id: '7', name: 'Pathways to Science - Women in STEM', description: 'Available to undergraduate and graduate female students. You must be pursuing a degree in science, technology, engineering, or mathematics to be eligible for this $3,000 award.', deadline: 'June 1, 2025', url:'https://www.pathwaystoscience.org/programhub.aspx?sort=OPP-BHWGroup-WomenSTEM'}
   ]);
   const [loading, setLoading] = useState(false);
 
@@ -32,8 +35,7 @@ const ScholarshipScreen = () => {
   );
 
   // Handle pressing a scholarship item
-  const handlePress = (scholarship: any) => {
-    const url = `https://www.ufl.edu/scholarships/${scholarship.id}`; // Example link structure for each scholarship
+  const handlePress = (url: string) => {
     Linking.openURL(url).catch((err) => console.error("Couldn't load the page", err));
   };
 
@@ -67,7 +69,7 @@ const ScholarshipScreen = () => {
           renderItem={({ item }) => (
             <TouchableOpacity
               style={styles.scholarshipItem}
-              onPress={() => handlePress(item)}
+              onPress={() => handlePress(item.url)}
             >
               <Text style={styles.scholarshipName}>{item.name}</Text>
               <Text style={styles.scholarshipDescription}>{item.description}</Text>
@@ -86,12 +88,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#BBDEFB', // Light blue background
+    backgroundColor: '#90CAF9', // Updated to the new blue color
   },
   header: {
-    backgroundColor: '#90CAF9',  // Darker blue background for the header
+    backgroundColor: '#A1CEDC',  // Updated to the new blue color
     padding: 50,
-    borderRadius: 20, // Rounded corners
     marginBottom: 16,
     alignItems: 'center',
     shadowColor: '#000',
@@ -100,20 +101,22 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
   },
   headerTitle: {
-    color: '#1E88E5', // Dark blue color
+    color: '#000000', 
     fontSize: 32, // Increased font size
     fontWeight: 'bold', // Bold font weight
   },
   headerText: {
-    color: '#1E88E5', // Dark blue color
+    color: '#000000', 
     fontSize: 24,
     fontStyle: 'italic', // Italicized text
   },
   regularText: {
-    color: '#1E88E5', // Dark blue color
+    color: 'white', // Dark blue color
     fontSize: 18,
     marginBottom: 16,
     textAlign: 'center',
+    padding: 10,
+    fontWeight: "bold",
   },
   searchBar: {
     height: 40,

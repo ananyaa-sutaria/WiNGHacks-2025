@@ -20,8 +20,8 @@ export default function HomeScreen() {
   const navigateToChatbot = () => {
     navigation.navigate('Chatbot'); 
   };
-  const navigateToOrganizations = () => {
-    navigation.navigate('Calendar'); 
+  const navigateToCalendar = () => {
+    navigation.navigate('Organizations'); 
   };
   const navigateToAScholarship = () => {
     navigation.navigate('Scholarship'); 
@@ -35,10 +35,10 @@ export default function HomeScreen() {
     headerImage={
       <ThemedView style={styles.headerImageContainer}>
         <Image
-          source={require('@/assets/images/profile.png')}
+          source={require('@/assets/images/profilepic.png')}
           style={styles.reactLogo}
         />
-        <ThemedText style={styles.headerOverlayText}>Hello, USER!</ThemedText>
+        <ThemedText style={styles.headerOverlayText}>Hello, Ananyaa!</ThemedText>
       </ThemedView>
     }>
        
@@ -50,8 +50,7 @@ export default function HomeScreen() {
     <ThemedView style={styles.stepContainer}>
       <ThemedText type="subtitle">About GatorGuide</ThemedText>
       <ThemedText type = "default">
-      GatorGuide is a student-developed application designed to assist STEM students in organizing their academic endeavors. T
-      he app provides valuable information and calendars for STEM-related student organizations at the University of Florida, as well as scholarships 
+      GatorGuide is a student-developed application designed to assist STEM students in organizing their academic endeavors. The app provides valuable information and calendars for STEM-related student organizations at the University of Florida, as well as scholarships 
       tailored to your identity and interests. Additionally, GatorGuide features KAPA, an AI-powered tool dedicated to addressing your personal questions and providing guidance.
 
 
@@ -114,7 +113,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: '#A1CEDC', // This is the color you're applying to the top of the header
     paddingTop: 20, // You can adjust this to move the text lower or higher
-    paddingBottom: 90,
+    paddingBottom: 100,
   },
   titleContainer: {
     flexDirection: 'row',
@@ -126,10 +125,13 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   reactLogo: {
-    height: 150,
-    width: '40%',
-    bottom: -55,
-    left: 10,
+    height: 130,
+    width: 130,
+    bottom: -65,
+    left: 25,
+    borderRadius: 80,
+    borderWidth: 2,
+
   },
   buttonImage: {
     height: 30,
