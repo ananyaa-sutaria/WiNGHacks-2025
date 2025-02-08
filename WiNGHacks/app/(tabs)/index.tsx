@@ -18,13 +18,16 @@ export default function HomeScreen() {
 
   // Function to navigate to another tab
   const navigateToChatbot = () => {
-    navigation.navigate('Chatbot'); // Ensure 'Chatbot' is part of your RootTabParamList type
+    navigation.navigate('Chatbot'); 
   };
   const navigateToCalendar = () => {
-    navigation.navigate('Calendar'); // Ensure 'Chatbot' is part of your RootTabParamList type
+    navigation.navigate('Calendar'); 
   };
   const navigateToAScholarship = () => {
-    navigation.navigate('Scholarship'); // Ensure 'Chatbot' is part of your RootTabParamList type
+    navigation.navigate('Scholarship'); 
+  };
+  const navigateToProfile = () => {
+    navigation.navigate('Profile'); 
   };
   return (
     <ParallaxScrollView
@@ -38,6 +41,9 @@ export default function HomeScreen() {
         <ThemedText style={styles.headerOverlayText}>Welcome, USER!</ThemedText>
       </ThemedView>
     }>
+       <TouchableOpacity style={styles.profileButtom} onPress={navigateToProfile}>
+        <ThemedText type="link">View Your Profile!</ThemedText>
+      </TouchableOpacity>
     <ThemedView style={styles.titleContainer}>
       <ThemedText type="title">Welcome!</ThemedText>
       <HelloWave />
@@ -109,4 +115,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#A1CEDC', // Optional button background color
     borderRadius: 5,
   },
+  profileButtom:{
+    marginTop: 20,
+    alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#A1CEDC', // Optional button background color
+    borderRadius: 5,
+  }
 });
