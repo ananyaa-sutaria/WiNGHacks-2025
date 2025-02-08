@@ -12,6 +12,7 @@ import {
   Pressable,
   Modal,
   TouchableOpacity,
+  Linking,
   Button
 } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
@@ -215,9 +216,8 @@ export default function ScholarshipScreen() {
             />
             
           )}
-
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
-            <ThemedText style = {styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
+          <TouchableOpacity style={styles.button} onPress={openHispanicScholarshipFund}>
+            <ThemedText style={styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
           </TouchableOpacity>
           
           
@@ -330,11 +330,11 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    paddingVertical: 16,
+    paddingVertical: 12,
     paddingHorizontal: 20,
     backgroundColor: '#FFFFFF', // White background
     alignItems: 'center',
-    borderRadius: 18, // Rounded edges
+    borderRadius: 25, // Rounded edges
     shadowColor: '#000', // Optional shadow for depth
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.2,
