@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     backgroundColor: '#fff',
     marginTop: 40, // Added marginTop to move it down
+    marginHorizontal: 16, // Added horizontal margin for spacing
   },
   scholarshipItem: {
     padding: 20,
