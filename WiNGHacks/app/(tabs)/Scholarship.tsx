@@ -12,7 +12,7 @@ import {
   Pressable,
   Modal,
   TouchableOpacity,
-  Button
+  Button,
 } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -209,8 +209,23 @@ export default function ScholarshipScreen() {
             />
           )}
 
+          <TouchableOpacity style={styles.button} onPress={() => alert('pressed')}>
+            <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
+              Hispanic Scholarship Fund
+            </ThemedText>
+            <ThemedText>Deadline: February 18</ThemedText>
+          </TouchableOpacity>
           <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
-            <ThemedText style = {styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
+          <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
+              Scholarship 2
+            </ThemedText>
+            <ThemedText> Deadline: Febraury 28</ThemedText>
+          </TouchableOpacity>
+          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+          <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
+              Scholarship 3
+            </ThemedText>
+            <ThemedText> Deadline: March 10</ThemedText>
           </TouchableOpacity>
         </ThemedView>
       </ScrollView>
@@ -319,11 +334,11 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    paddingVertical: 12,
+    paddingVertical: 16,
     paddingHorizontal: 20,
     backgroundColor: '#FFFFFF', // White background
     alignItems: 'center',
-    borderRadius: 25, // Rounded edges
+    borderRadius: 18, // Rounded edges
     shadowColor: '#000', // Optional shadow for depth
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.2,
