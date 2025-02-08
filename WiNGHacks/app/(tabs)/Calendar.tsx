@@ -1,5 +1,7 @@
-import { StyleSheet, Image, Platform } from 'react-native';
-
+import { StyleSheet, Image, Platform, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import the navigation hook
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import the correct type
+import { RootTabParamList } from './types'; // Import the type for your screens
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
