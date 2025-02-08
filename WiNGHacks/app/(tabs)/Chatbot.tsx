@@ -1,29 +1,88 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { StyleSheet, Image, TextInput, View } from 'react-native';
 
-import { Collapsible } from '@/components/Collapsible';
-import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 
+import React, { useEffect, useState } from 'react';
+
+<<<<<<< HEAD
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+=======
+>>>>>>> 68dae2a368e6495a948390b516043f6bb46ee935
 export default function TabTwoScreen() {
+  const [chatbotResponse, setChatbotResponse] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false); 
+  const [userInput, setUserInput] = useState<string>('');
+
+  const generateContent = async (input: string) => {
+    setLoading(true); 
+
+    try {
+      const genAI = new GoogleGenerativeAI("AIzaSyBpyKAe7vUEVZ89A2HfmPHk6A1tAhrkchE");
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+
+      const result = await model.generateContent(input); 
+      setChatbotResponse(result.response.text());
+    }
+    catch(error){
+      console.error("error calling chatbot API: ", error);
+      console.log("There was an error fetching the response.");
+    } finally {
+      setLoading(false); 
+    }
+  };
+
+  const handleChangeText = (text: string) => {
+    setUserInput(text); 
+    generateContent(text);
+  };
+
   return (
     
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#b9dcff', dark: 'afeeee' }}
+      headerBackgroundColor={{ light: '##ffcc99', dark: '#b9dcff' }}
       headerImage={
-        <Image
-          source={require('@/assets/images/chatbot.png')}  // Replace with your image path
+        <IconSymbol
+          size={310}
+          color="#808080"
+          name="chevron.left.forwardslash.chevron.right"
           style={styles.headerImage}
         />
-        
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Chat Bot</ThemedText>
+        <ThemedText type="title">Meet KAPA!</ThemedText>
       </ThemedView>
-      
+<<<<<<< HEAD
       <ThemedText>Have any STEM related questions to ask? Ask out ChatBot, KAPA!</ThemedText>
+
+      <TextInput
+style = {styles.userInput}
+placeholder = "Type your question: "
+value = {userInput}
+onChangeText = {handleChangeText}
+returnKeyType = "search"
+/>
+
+      <View style={styles.chatbotResponseContainer}>
+  {loading ? (
+    <ThemedText type="default">Loading...</ThemedText> // Show loading text
+  ) : (
+    chatbotResponse ? (
+      <ThemedText type="default">{chatbotResponse}</ThemedText> // Display the response
+    ) : (
+      <ThemedText type="default">No response available</ThemedText> // If no response
+    )
+  )}
+</View>
+  
+
+
+=======
+      
+      <ThemedText>Have any STEM related questions to ask? Ask out ChatBot, KAPA! KAPA uses Artifical Intelligence to answer your questions, pulling knowledge together from all over the internet!</ThemedText>
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{' '}
@@ -92,6 +151,7 @@ export default function TabTwoScreen() {
           ),
         })}
       </Collapsible>
+>>>>>>> 68dae2a368e6495a948390b516043f6bb46ee935
     </ParallaxScrollView>
   );
 }
@@ -99,14 +159,51 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   headerImage: {
     color: '#808080',
+<<<<<<< HEAD
+    bottom: -90,
+    left: -35,
+=======
     width: '45%',
     height: 200,
     bottom: 10,
     left:107,
+>>>>>>> 68dae2a368e6495a948390b516043f6bb46ee935
     position: 'absolute',
   },
   titleContainer: {
     flexDirection: 'row',
-    gap: 8,
+    //gap: 8,
+    justifyContent: 'center', // Centers content vertically
+    alignItems: 'center',
+  },
+  chatbotResponseContainer: {
+    marginTop: 20,
+    padding: 15,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 5,
+  },
+  userInput: {
+    height: 40, 
+    borderColor: '#000000',
+    borderWidth: 5, 
+    paddingLeft: 10,
   },
 });
+
+<<<<<<< HEAD
+
+=======
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
+async function generateContent(){
+  const genAI = new GoogleGenerativeAI("AIzaSyBpyKAe7vUEVZ89A2HfmPHk6A1tAhrkchE");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+
+const prompt = "Explain how AI works";
+
+
+const result = await model.generateContent(prompt); 
+console.log(result.response.text());
+
+}
+>>>>>>> 68dae2a368e6495a948390b516043f6bb46ee935

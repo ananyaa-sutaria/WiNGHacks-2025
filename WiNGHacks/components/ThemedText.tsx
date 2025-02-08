@@ -22,7 +22,7 @@ export function ThemedText({
       style={[
         { color },
         type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
+        type === 'title' ? [styles.title, styles.centered] : undefined, // Center the title text         
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+    textAlign: "center",
     fontWeight: 'bold',
     lineHeight: 32,
   },
@@ -56,5 +57,9 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
+  },
+  centered: {
+    textAlign: 'center', // This centers the title text
+    alignSelf: 'center',
   },
 });
