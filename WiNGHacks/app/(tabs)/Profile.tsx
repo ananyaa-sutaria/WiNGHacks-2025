@@ -8,15 +8,15 @@ import { ThemedView } from '@/components/ThemedView';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#98fb98', dark: '#2e8b57' }}
+      headerBackgroundColor={{ light: '#98fb98', dark: '#aae6ca' }}
       headerImage={
         <Image
-          source={require('@/assets/images/calendarpic.png')}  // Replace with your image path
+          source={require('@/assets/images/profile.png')}  // Replace with your image path
           style={styles.headerImage}
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Calendar</ThemedText>
+        <ThemedText type="title">Profile</ThemedText>
       </ThemedView>
       
     </ParallaxScrollView>

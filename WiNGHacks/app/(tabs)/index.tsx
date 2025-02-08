@@ -50,6 +50,10 @@ export default function HomeScreen() {
 
     <ThemedView style={styles.stepContainer}>
     <TouchableOpacity style={styles.profileButtom} onPress={navigateToProfile}>
+    <Image
+          source={require('@/assets/images/profile.png')}
+          style={styles.buttonImage}
+        />
         <ThemedText type="profile">View Your Profile!</ThemedText>
       </TouchableOpacity>
       
@@ -58,7 +62,11 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Ask KAPA:</ThemedText>
         <TouchableOpacity style={styles.linkButton} onPress={navigateToChatbot}>
-        <ThemedText type="link">Navigate to KAPA!</ThemedText>
+        <Image
+          source={require('@/assets/images/chatbot.png')}
+          style={styles.buttonImage}
+        />
+        <ThemedText type="profile">Navigate to KAPA</ThemedText>
       </TouchableOpacity>
         
         
@@ -66,13 +74,21 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">View Student Org Calendar:</ThemedText>
         <TouchableOpacity style={styles.linkButton} onPress={navigateToCalendar}>
-        <ThemedText type="link">Navigate to Calendar!</ThemedText>
+        <Image
+          source={require('@/assets/images/calendarpic.png')}
+          style={styles.buttonImage}
+        />
+        <ThemedText type="profile">Navigate to Calendars</ThemedText>
       </TouchableOpacity>
       </ThemedView>
       <ThemedView> 
       <ThemedText type="subtitle">View Scholarships:</ThemedText>
       <TouchableOpacity style={styles.linkButton} onPress={navigateToAScholarship}>
-        <ThemedText type="link">Navigate to Scholarships!</ThemedText>
+      <Image
+          source={require('@/assets/images/calendarpic.png')}
+          style={styles.buttonImage}
+        />
+        <ThemedText type="profile">View Scholarships</ThemedText>
         
       </TouchableOpacity>
       </ThemedView>
@@ -105,6 +121,12 @@ const styles = StyleSheet.create({
     bottom: -55,
     left: 10,
   },
+  buttonImage: {
+    height: 50,
+    width: 50,
+    bottom: -20,
+    left: -120,
+  },
   headerOverlayText: {
     position: 'absolute',
     top: 150,
@@ -116,23 +138,18 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   linkButton: {
-    marginTop: 20,
+    marginTop: 0,
     alignItems: 'center',
-    padding: 10,
+    padding: 0,
     backgroundColor: '#A1CEDC', // Optional button background color
-    borderRadius: 5,
+    borderRadius: 15,
   },
   profileButtom:{
-    marginTop: 20,
+    marginTop: 0,
     alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#A1CEDC', // Optional button background color
-    borderRadius: 5,
-    fontSize: 30,
+    padding: 0,
+    backgroundColor: '#84b6c5', // Optional button background color
+    borderRadius: 15,
     fontWeight: 'bold',
   },
-  profile:{
-    fontSize: 50,
-    fontWeight: 'bold',
-  }
 });
