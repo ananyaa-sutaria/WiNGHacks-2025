@@ -14,12 +14,10 @@ import {
 const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scholarships, setScholarships] = useState([
-    { id: '1', name: 'Hispanic Scholarship Fund', description: 'Empowers hispanic students  with the knowledge and resources to successfully complete a higher education' },
-    { id: '2', name: 'Society of Women Engineers Scholarship', description: 'Empowers women pursuing undergraduate and graduate degrees in engineering, engineering technology, and related fields.' },
-    { id: '3', name: 'Machen Florida Opportunity Scholarship', description: 'Assists historically low-income first-generation college students in meeting their college costs.' },
-    {id: '4', name: "Out to Innovate - LGBTQ+", description: 'Award scholarships to LGBTQ+ students currently enrolled in Science, Technology, Engineering, or Mathematics (STEM) or STEM-related teaching fields.'},
-    {id: '5', name: "Tata - For Indian International Students", description: 'A need-based scholarship for Indian students to attend University in the United States.'},
-
+    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
+    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
+    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
+    // You can add more mock data or real data here
   ]);
   const [loading, setLoading] = useState(false);
 
@@ -44,9 +42,10 @@ const ScholarshipScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerText}>Scholarship Hub</Text>
-        <Text style={styles.defaultText}>Search for scholarships by keyword.</Text>
-
       </View>
+
+      {/* Regular text above the search bar */}
+      <Text style={styles.regularText}>A search feature to help you pay for the education you deserve</Text>
 
       {/* Search Bar */}
       <TextInput
@@ -71,6 +70,7 @@ const ScholarshipScreen = () => {
             >
               <Text style={styles.scholarshipName}>{item.name}</Text>
               <Text style={styles.scholarshipDescription}>{item.description}</Text>
+              <Text style={styles.scholarshipDeadline}>Deadline: {item.deadline}</Text>
             </TouchableOpacity>
           )}
           ListEmptyComponent={<Text>No scholarships found</Text>}
@@ -96,17 +96,15 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     alignItems: 'center',
   },
+  headerTitle: {
+    color: '#000', // Changed to black
+    fontSize: 32, // Increased font size
+    fontWeight: 'bold', // Bold font weight
+  },
   headerText: {
     color: '#fff',
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    bottom: -30,
-  },
-  defaultText: {
-    color: '#fff',
-    fontSize: 18,
-    bottom: -30,
-    width: 270,
   },
   searchBar: {
     height: 40,
@@ -116,13 +114,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 40,
     backgroundColor: '#fff',
-    marginTop: -20, // Added marginTop to move it down
+    marginTop: 40, // Added marginTop to move it down
   },
   scholarshipItem: {
     padding: 20,
     backgroundColor: '#fff',
-    marginBottom: 8,
-    borderRadius: 8,
+    marginBottom: 16, // Increased marginBottom for more space
+    marginHorizontal: 16, // Added horizontal margin for spacing
+    borderRadius: 18, // Increased borderRadius for more rounded corners
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -136,6 +135,11 @@ const styles = StyleSheet.create({
   scholarshipDescription: {
     fontSize: 14,
     color: '#666',
+  },
+  scholarshipDeadline: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 8,
   },
 });
 
