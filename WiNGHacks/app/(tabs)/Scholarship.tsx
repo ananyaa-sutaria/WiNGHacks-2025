@@ -14,9 +14,9 @@ import {
 const ScholarshipScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [scholarships, setScholarships] = useState([
-    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students' },
-    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students' },
-    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students' },
+    { id: '1', name: 'STEM Scholarship', description: 'A great scholarship for STEM students', deadline: 'February 8, 2025' },
+    { id: '2', name: 'Engineering Scholarship', description: 'A scholarship for Engineering students', deadline: 'March 15, 2025' },
+    { id: '3', name: 'Medical Scholarship', description: 'A scholarship for Medical students', deadline: 'April 20, 2025' },
     // You can add more mock data or real data here
   ]);
   const [loading, setLoading] = useState(false);
@@ -33,7 +33,7 @@ const ScholarshipScreen = () => {
 
   // Handle pressing a scholarship item
   const handlePress = (scholarship: any) => {
-    const url = `https://www.hsf.net/}`; // Example link structure for each scholarship
+    const url = `https://www.ufl.edu/scholarships/${scholarship.id}`; // Example link structure for each scholarship
     Linking.openURL(url).catch((err) => console.error("Couldn't load the page", err));
   };
 
@@ -41,7 +41,8 @@ const ScholarshipScreen = () => {
     <SafeAreaView style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-        <Text style={styles.headerText}>Scholarship Hub</Text>
+        <Text style={styles.headerTitle}>Scholarship Hub</Text>
+        <Text style={styles.headerText}>Find your perfect match! 🔎</Text>
       </View>
 
       {/* Regular text above the search bar */}
@@ -51,7 +52,7 @@ const ScholarshipScreen = () => {
       <TextInput
         style={styles.searchBar}
         placeholder="Search Scholarships..."
-        placeholderTextColor="black"
+        placeholderTextColor="#888"
         value={searchQuery}
         onChangeText={handleSearch}
       />
@@ -73,7 +74,7 @@ const ScholarshipScreen = () => {
               <Text style={styles.scholarshipDeadline}>Deadline: {item.deadline}</Text>
             </TouchableOpacity>
           )}
-          ListEmptyComponent={<Text>No scholarships found</Text>}
+          ListEmptyComponent={<Text style={styles.emptyText}>No scholarships found</Text>}
         />
       )}
     </SafeAreaView>
@@ -85,43 +86,52 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#b3d9ff',
+    backgroundColor: '#BBDEFB', // Light blue background
   },
   header: {
-    backgroundColor: '#A1CEDC',  // Green background for the header
-    padding: 70,
-    borderRadius: 0,
-    top: -50,
-    height: 255,
+    backgroundColor: '#90CAF9',  // Darker blue background for the header
+    padding: 50,
+    borderRadius: 20, // Rounded corners
     marginBottom: 16,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
   },
   headerTitle: {
-    color: '#000', // Changed to black
+    color: '#1E88E5', // Dark blue color
     fontSize: 32, // Increased font size
     fontWeight: 'bold', // Bold font weight
   },
   headerText: {
-    color: '#fff',
+    color: '#1E88E5', // Dark blue color
     fontSize: 24,
-    fontWeight: 'bold',
+    fontStyle: 'italic', // Italicized text
+  },
+  regularText: {
+    color: '#1E88E5', // Dark blue color
+    fontSize: 18,
+    marginBottom: 16,
+    textAlign: 'center',
   },
   searchBar: {
     height: 40,
-    borderColor: '#ccc',
+    borderColor: '#64B5F6', // Light blue border
     borderWidth: 1,
     paddingLeft: 8,
-    borderRadius: 5,
-    marginBottom: 40,
-    backgroundColor: '#fff',
+    borderRadius: 20, // Rounded corners
+    marginBottom: 16,
+    backgroundColor: '#FFFFFF', // White background
     marginTop: 40, // Added marginTop to move it down
+    marginHorizontal: 16, // Added horizontal margin for spacing
   },
   scholarshipItem: {
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF', // White background
     marginBottom: 16, // Increased marginBottom for more space
     marginHorizontal: 16, // Added horizontal margin for spacing
-    borderRadius: 18, // Increased borderRadius for more rounded corners
+    borderRadius: 20, // Increased borderRadius for more rounded corners
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -130,16 +140,23 @@ const styles = StyleSheet.create({
   scholarshipName: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#1E88E5', // Dark blue color
     marginBottom: 4,
   },
   scholarshipDescription: {
     fontSize: 14,
-    color: '#666',
+    color: '#1565C0', // Darker blue color
   },
   scholarshipDeadline: {
     fontSize: 14,
-    color: '#666',
+    color: '#1565C0', // Darker blue color
     marginTop: 8,
+  },
+  emptyText: {
+    textAlign: 'center',
+    color: '#1E88E5', // Dark blue color
+    fontSize: 18,
+    marginTop: 20,
   },
 });
 
