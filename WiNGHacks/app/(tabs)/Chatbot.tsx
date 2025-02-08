@@ -16,6 +16,7 @@ export default function TabTwoScreen() {
           source={require('@/assets/images/chatbot.png')}  // Replace with your image path
           style={styles.headerImage}
         />
+        
       }>
       
       <ThemedView style={styles.titleContainer}>
@@ -97,6 +98,7 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   headerImage: {
     color: '#808080',
+    width: '50%',
     bottom: -90,
     left: -35,
     position: 'absolute',
