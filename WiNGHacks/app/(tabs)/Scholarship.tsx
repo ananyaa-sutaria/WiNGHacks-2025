@@ -12,10 +12,13 @@ import {
   Pressable,
   Modal,
   TouchableOpacity,
+  Linking,
   Button
 } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+
+
 
 interface Scholarship {
   id: string;
@@ -158,6 +161,9 @@ export default function ScholarshipScreen() {
       />
     </View>
   );
+  const openHispanicScholarshipFund = () => {
+    Linking.openURL('https://www.hsf.net/'); // Link to Hispanic Scholarship Fund
+  };
 
   const headerBackgroundColor = colorScheme === 'dark' ? '#353636' : '#D0D0D0';
 
@@ -204,18 +210,23 @@ export default function ScholarshipScreen() {
               ListEmptyComponent={
                 <ThemedText style={styles.emptyText}>No scholarships found</ThemedText>
               }
+              
               scrollEnabled={false}
               nestedScrollEnabled={false}
             />
+            
           )}
-
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
-            <ThemedText style = {styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
+          <TouchableOpacity style={styles.button} onPress={openHispanicScholarshipFund}>
+            <ThemedText style={styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
           </TouchableOpacity>
+          
+          
+    
         </ThemedView>
       </ScrollView>
     </SafeAreaView>
   );
+  
 }
 
 const styles = StyleSheet.create({
