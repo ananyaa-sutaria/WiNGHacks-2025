@@ -12,7 +12,7 @@ export default function TabTwoScreen() {
       headerImage={
             <ThemedView style={styles.headerImageContainer}>
               <Image
-                source={require('@/assets/images/profile.png')}
+                source={require('@/assets/images/profilepic.png')}
                 style={styles.headerImage}
               />
               <ThemedText style={styles.headerOverlayText}>Profile</ThemedText>
@@ -20,11 +20,11 @@ export default function TabTwoScreen() {
           }>
             
       <ThemedView style={styles.stepContainer}>
-        <ThemedText style={styles.text}> User name</ThemedText>
+        <ThemedText style={styles.text}>Ananyaa Sutaria</ThemedText>
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
-        <ThemedText style={styles.text}> user.email@domain.com</ThemedText>
+        <ThemedText style={styles.text}> ananyaa.sutaria@ufl.edu</ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText style={styles.text}> +1 (123)-456-7890</ThemedText>
@@ -33,7 +33,7 @@ export default function TabTwoScreen() {
         <ThemedText style={styles.text}> University of Florida</ThemedText>
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <ThemedText style={styles.text}> Field of Study</ThemedText>
+        <ThemedText style={styles.text}> Computer Science - HWCOE</ThemedText>
       </ThemedView>
       
       
@@ -48,10 +48,12 @@ const styles = StyleSheet.create({
       },
   headerImage: {
     color: '#2e8b57',
-    width: 150,
-    height: 150,
-    bottom: 10,
-    left: 120,
+    width: 130,
+    height: 130,
+    bottom: 15,
+    left: 132,
+    borderRadius: 80,
+    borderWidth: 2,
     position: 'absolute',
   },
   stepImage: {
