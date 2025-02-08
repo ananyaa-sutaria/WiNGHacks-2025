@@ -21,7 +21,7 @@ export default function HomeScreen() {
     navigation.navigate('Chatbot'); 
   };
   const navigateToCalendar = () => {
-    navigation.navigate('Organizations'); 
+    navigation.navigate('Calendar'); 
   };
   const navigateToAScholarship = () => {
     navigation.navigate('Scholarship'); 
