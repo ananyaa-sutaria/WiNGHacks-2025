@@ -12,6 +12,7 @@ import {
   Pressable,
   Modal,
   TouchableOpacity,
+  Linking,
   Button,
 } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
@@ -164,6 +165,13 @@ export default function ScholarshipScreen() {
       />
     </View>
   );
+  const openHispanicScholarshipFund = () => {
+    Linking.openURL('https://www.hsf.net/'); // Link to Hispanic Scholarship Fund
+  };
+  const openTrio = () => {
+    Linking.openURL('https://oas.aa.ufl.edu/programs/uf-student-support-services/trio-honor-society/'); // Link to Hispanic Scholarship Fund
+  };
+ 
 
   const headerBackgroundColor = colorScheme === 'dark' ? '#353636' : '#D0D0D0';
 
@@ -216,13 +224,14 @@ export default function ScholarshipScreen() {
             />
           )}
 
-          <TouchableOpacity style={styles.button} onPress={() => alert('pressed')}>
+        <TouchableOpacity style={styles.button} onPress={openHispanicScholarshipFund}>
+
             <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
               Hispanic Scholarship Fund
             </ThemedText>
             <ThemedText>Deadline: February 18</ThemedText>
           </TouchableOpacity>
-          <TouchableOpacity style = {styles.button} onPress = {() => alert('pressed')}>
+          <TouchableOpacity style={styles.button} onPress={openTrio}>
           <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
             UF TRiO Student Support 
             </ThemedText>
