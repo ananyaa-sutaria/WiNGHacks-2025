@@ -8,17 +8,20 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
+    headerBackgroundColor={{ light: '#aae6ca', dark: '#aae6ca' }}
+    headerImage={
+      <ThemedView style={styles.headerImageContainer}>
         <Image
           source={require('@/assets/images/profile.png')}
           style={styles.reactLogo}
         />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
+        <ThemedText style={styles.headerOverlayText}>Welcome, USER!</ThemedText>
       </ThemedView>
+    }>
+    <ThemedView style={styles.titleContainer}>
+      <ThemedText type="title">Welcome!</ThemedText>
+      <HelloWave />
+    </ThemedView>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
@@ -55,6 +58,12 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  headerImageContainer: {
+    position: 'relative',
+    backgroundColor: '#A1CEDC', // This is the color you're applying to the top of the header
+    paddingTop: 20, // You can adjust this to move the text lower or higher
+    paddingBottom: 90,
+  },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -65,10 +74,19 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
+    height: 150,
+    width: '40%',
+    bottom: -55,
+    left: 10,
+  },
+  headerOverlayText: {
     position: 'absolute',
+    top: 150,
+    width: "80%",
+    left: 180,
+    height: 100,
+    color: '#00000', // White text color
+    fontSize: 26,
+    fontWeight: 'bold',
   },
 });
