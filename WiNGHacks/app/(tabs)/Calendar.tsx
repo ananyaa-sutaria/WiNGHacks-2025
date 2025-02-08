@@ -1,5 +1,7 @@
-import { StyleSheet, Image, Platform } from 'react-native';
-
+import { StyleSheet, Image, Platform, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Import the navigation hook
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import the correct type
+import { RootTabParamList } from './types'; // Import the type for your screens
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -10,12 +12,10 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      headerBackgroundColor={{ light: '#CBC3E3', dark: '#FF8C00' }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
+        <Image
+          source={require('@/assets/images/calendarpic.png')}  // Replace with your image path
           style={styles.headerImage}
         />
       }>
@@ -98,8 +98,10 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   headerImage: {
     color: '#808080',
-    bottom: -90,
-    left: -35,
+    width: '40%',
+    height: 150,
+    bottom: 35,
+    left: 115,
     position: 'absolute',
   },
   titleContainer: {
