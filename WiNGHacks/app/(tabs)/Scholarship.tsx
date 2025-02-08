@@ -12,10 +12,13 @@ import {
   Pressable,
   Modal,
   TouchableOpacity,
-  Button,
+  Linking,
+  Button
 } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+
+
 
 interface Scholarship {
   id: string;
@@ -164,6 +167,9 @@ export default function ScholarshipScreen() {
       />
     </View>
   );
+  const openHispanicScholarshipFund = () => {
+    Linking.openURL('https://www.hsf.net/'); // Link to Hispanic Scholarship Fund
+  };
 
   const headerBackgroundColor = colorScheme === 'dark' ? '#353636' : '#D0D0D0';
 
@@ -211,10 +217,13 @@ export default function ScholarshipScreen() {
               ListEmptyComponent={
                 <ThemedText style={styles.emptyText}>No scholarships found</ThemedText>
               }
+              
               scrollEnabled={false}
               nestedScrollEnabled={false}
             />
+            
           )}
+<<<<<<< HEAD
 
           <TouchableOpacity style={styles.button} onPress={() => alert('pressed')}>
             <ThemedText style={[styles.buttonText, { fontWeight: 'bold' }]}>
@@ -240,10 +249,19 @@ export default function ScholarshipScreen() {
             </ThemedText>
             <ThemedText> Deadline: April 7</ThemedText>
           </TouchableOpacity>
+=======
+          <TouchableOpacity style={styles.button} onPress={openHispanicScholarshipFund}>
+            <ThemedText style={styles.buttonText}>Hispanic Scholarship Fund</ThemedText>
+          </TouchableOpacity>
+          
+          
+    
+>>>>>>> 8ab1e38bb35fefba79c1174e179207d39a71e9a4
         </ThemedView>
       </ScrollView>
     </SafeAreaView>
   );
+  
 }
 
 const styles = StyleSheet.create({
@@ -345,11 +363,11 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 20,
-    paddingVertical: 16,
+    paddingVertical: 12,
     paddingHorizontal: 20,
     backgroundColor: '#FFFFFF', // White background
     alignItems: 'center',
-    borderRadius: 18, // Rounded edges
+    borderRadius: 25, // Rounded edges
     shadowColor: '#000', // Optional shadow for depth
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.2,
