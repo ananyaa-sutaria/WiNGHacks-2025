@@ -37,25 +37,25 @@ export default function TabLayout() {
         name="Chatbot"
         options={{
           title: 'ChatBot',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="t.bubble.fill" color={color} />,
         }}
       />
       <Tabs.Screen
         name="Scholarship"
         options={{
           title: 'Scholarships',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="star.fill" color={color} />,
         }}
       />
       <Tabs.Screen
         name="Profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="Organizations"
+        name="Calendar"
         options={{
           title: 'Organizations',
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,

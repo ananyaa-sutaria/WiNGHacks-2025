@@ -15,7 +15,7 @@ export default function TabTwoScreen() {
       headerBackgroundColor={{ light: '#aae6ca', dark: '#A1CEDC' }}
       headerImage={
         <Image
-          source={require('@/assets/images/calendarpic.png')}  // Replace with your image path
+          source={require('@/assets/images/Adobe Express - file.png')}  // Replace with your image path
           style={styles.headerImage}
         />
       }>
@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     bottom: 35,
     left: 115,
     position: 'absolute',
+    alignItems: 'center',
   },
   titleContainer: {
     flexDirection: 'row',

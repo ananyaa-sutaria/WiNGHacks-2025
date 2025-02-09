@@ -21,7 +21,7 @@ export default function HomeScreen() {
     navigation.navigate('Chatbot'); 
   };
   const navigateToCalendar = () => {
-    navigation.navigate('Organizations'); 
+    navigation.navigate('Calendar'); 
   };
   const navigateToAScholarship = () => {
     navigation.navigate('Scholarship'); 
@@ -83,7 +83,7 @@ export default function HomeScreen() {
         
       </ThemedView>
       <ThemedView style={styles.stepContainer}>
-        <TouchableOpacity style={styles.linkButton} onPress={navigateToOrganizations}>
+        <TouchableOpacity style={styles.linkButton} onPress={navigateToCalendar}>
         <Image
           source={require('@/assets/images/calendarpic.png')}
           style={styles.buttonImage}
