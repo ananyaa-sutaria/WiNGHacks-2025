@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Platform, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import the navigation hook
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import the correct type
-import { RootTabParamList } from './types'; // Import the type for your screens
+import { useNavigation } from '@react-navigation/native'; 
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; 
+import { RootTabParamList } from './types'; 
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -12,7 +12,7 @@ import { ThemedView } from '@/components/ThemedView';
 type Navigation = NativeStackNavigationProp<RootTabParamList>;
 
 export default function HomeScreen() {
-  const navigation = useNavigation<Navigation>(); // Ensure correct typing here
+  const navigation = useNavigation<Navigation>(); 
 
 
 
@@ -21,7 +21,7 @@ export default function HomeScreen() {
     navigation.navigate('Chatbot'); 
   };
   const navigateToCalendar = () => {
-    navigation.navigate('Calendar'); 
+    navigation.navigate('Organizations'); 
   };
   const navigateToAScholarship = () => {
     navigation.navigate('Scholarship'); 
@@ -50,7 +50,7 @@ export default function HomeScreen() {
     <ThemedView style={styles.stepContainer}>
       <ThemedText type="subtitle">About GatorGuide</ThemedText>
       <ThemedText type = "default">
-      GatorGuide is a student-developed application designed to assist STEM students in organizing their academic endeavors. The app provides valuable information and calendars for STEM-related student organizations at the University of Florida, as well as scholarships 
+      GatorGuide is a student-developed application designed to assist STEM students in organizing their academic endeavors. The app provides valuable information for STEM-related student organizations at the University of Florida, as well as scholarships 
       tailored to your identity and interests. Additionally, GatorGuide features KAPA, an AI-powered tool dedicated to addressing your personal questions and providing guidance.
 
 
@@ -111,8 +111,8 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   headerImageContainer: {
     position: 'relative',
-    backgroundColor: '#A1CEDC', // This is the color you're applying to the top of the header
-    paddingTop: 20, // You can adjust this to move the text lower or higher
+    backgroundColor: '#A1CEDC', 
+    paddingTop: 20, 
     paddingBottom: 100,
   },
   titleContainer: {
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     width: "90%",
     left: 180,
     height: 100,
-    color: '#00000', // White text color
+    color: '#00000', 
     fontSize: 24,
     fontWeight: 'bold',
   },
@@ -154,10 +154,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 0,
     backgroundColor: '#A1CEDC', 
-    shadowColor: '#000',          // Shadow color (black)
-    shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
-    shadowOpacity: 0.3,           // Shadow opacity
-    shadowRadius: 10, // Optional button background color
+    shadowColor: '#000',          
+    shadowOffset: { width: 0, height: 10 },  
+    shadowOpacity: 0.3,           
+    shadowRadius: 10, 
     borderRadius: 5,
     
     
@@ -166,12 +166,12 @@ const styles = StyleSheet.create({
     marginTop: 0,
     alignItems: 'center',
     padding: -6,
-    backgroundColor: '#84b6c5', // Optional button background color
+    backgroundColor: '#84b6c5', 
     borderRadius: 5,
     fontWeight: 'bold',
-    shadowColor: '#000',          // Shadow color (black)
-    shadowOffset: { width: 0, height: 10 },  // Shadow offset (x, y)
-    shadowOpacity: 0.3,           // Shadow opacity
+    shadowColor: '#000',         
+    shadowOffset: { width: 0, height: 10 },  
+    shadowOpacity: 0.3,           
     shadowRadius: 10, 
   },
 });

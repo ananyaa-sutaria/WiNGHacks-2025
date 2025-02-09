@@ -24,33 +24,27 @@ const ScholarshipScreen = () => {
   ]);
   const [loading, setLoading] = useState(false);
 
-  // Handle text input change and search
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
 
-  // Filter scholarships based on the search query
   const filteredScholarships = scholarships.filter(scholarship =>
     scholarship.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  // Handle pressing a scholarship item
   const handlePress = (url: string) => {
     Linking.openURL(url).catch((err) => console.error("Couldn't load the page", err));
   };
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Scholarship Hub</Text>
         <Text style={styles.headerText}>Find your perfect match! 🔎</Text>
       </View>
 
-      {/* Regular text above the search bar */}
       <Text style={styles.regularText}>A search feature to help you pay for the education you deserve</Text>
 
-      {/* Search Bar */}
       <TextInput
         style={styles.searchBar}
         placeholder="Search Scholarships..."
@@ -59,7 +53,6 @@ const ScholarshipScreen = () => {
         onChangeText={handleSearch}
       />
 
-      {/* Loading indicator or list */}
       {loading ? (
         <ActivityIndicator size="large" color="#000" />
       ) : (
@@ -83,15 +76,14 @@ const ScholarshipScreen = () => {
   );
 };
 
-// Styling for the Scholarship Screen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 16,
-    backgroundColor: '#90CAF9', // Updated to the new blue color
+    backgroundColor: '#90CAF9', 
   },
   header: {
-    backgroundColor: '#A1CEDC',  // Updated to the new blue color
+    backgroundColor: '#A1CEDC',  
     padding: 50,
     marginBottom: 16,
     alignItems: 'center',
@@ -102,16 +94,16 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#000000', 
-    fontSize: 32, // Increased font size
-    fontWeight: 'bold', // Bold font weight
+    fontSize: 32, 
+    fontWeight: 'bold', 
   },
   headerText: {
     color: '#000000', 
     fontSize: 24,
-    fontStyle: 'italic', // Italicized text
+    fontStyle: 'italic', 
   },
   regularText: {
-    color: 'white', // Dark blue color
+    color: 'white', 
     fontSize: 18,
     marginBottom: 16,
     textAlign: 'center',
@@ -120,21 +112,21 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     height: 40,
-    borderColor: '#64B5F6', // Light blue border
+    borderColor: '#64B5F6', 
     borderWidth: 1,
     paddingLeft: 8,
-    borderRadius: 20, // Rounded corners
+    borderRadius: 20, 
     marginBottom: 16,
-    backgroundColor: '#FFFFFF', // White background
-    marginTop: 40, // Added marginTop to move it down
-    marginHorizontal: 16, // Added horizontal margin for spacing
+    backgroundColor: '#FFFFFF', 
+    marginTop: 40, 
+    marginHorizontal: 16, 
   },
   scholarshipItem: {
     padding: 20,
-    backgroundColor: '#FFFFFF', // White background
-    marginBottom: 16, // Increased marginBottom for more space
-    marginHorizontal: 16, // Added horizontal margin for spacing
-    borderRadius: 20, // Increased borderRadius for more rounded corners
+    backgroundColor: '#FFFFFF', 
+    marginBottom: 16, 
+    marginHorizontal: 16, 
+    borderRadius: 20, 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -143,21 +135,21 @@ const styles = StyleSheet.create({
   scholarshipName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#1E88E5', // Dark blue color
+    color: '#1E88E5', 
     marginBottom: 4,
   },
   scholarshipDescription: {
     fontSize: 14,
-    color: '#1565C0', // Darker blue color
+    color: '#1565C0', 
   },
   scholarshipDeadline: {
     fontSize: 14,
-    color: '#1565C0', // Darker blue color
+    color: '#1565C0', 
     marginTop: 8,
   },
   emptyText: {
     textAlign: 'center',
-    color: '#1E88E5', // Dark blue color
+    color: '#1E88E5', 
     fontSize: 18,
     marginTop: 20,
   },

@@ -1,7 +1,7 @@
 import { StyleSheet, Image, Platform, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import the navigation hook
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import the correct type
-import { RootTabParamList } from './types'; // Import the type for your screens
+import { useNavigation } from '@react-navigation/native'; 
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; 
+import { RootTabParamList } from './types'; 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -15,7 +15,7 @@ export default function TabTwoScreen() {
       headerBackgroundColor={{ light: '#aae6ca', dark: '#A1CEDC' }}
       headerImage={
         <Image
-          source={require('@/assets/images/Adobe Express - file.png')}  // Replace with your image path
+          source={require('@/assets/images/Adobe Express - file.png')}  
           style={styles.headerImage}
         />
       }>
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     //gap: 8,
-    justifyContent: 'center', // Centers content vertically
+    justifyContent: 'center', 
     alignItems: 'center',
   },
   firstOrg: {
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
   colorStack: {
     alignItems: 'center',
     backgroundColor: '#b3d9ff',
-    right: 5, // This is the color you're applying to the top of the header
+    right: 5, 
   },
   studentOrg: {
     alignItems: 'center',

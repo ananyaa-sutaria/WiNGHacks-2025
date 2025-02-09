@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Platform, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import the navigation hook
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'; // Import the correct type
-import { RootTabParamList } from './types'; // Import the type for your screens
+import { useNavigation } from '@react-navigation/native'; 
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'; 
+import { RootTabParamList } from './types'; 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -74,30 +74,30 @@ const styles = StyleSheet.create({
     width: "90%",
     left: 162,
     height: 100,
-    color: '#00000', // White text color
+    color: '#00000',
     fontSize: 24,
     fontWeight: 'bold',
     alignContent: 'center',
   },
   headerImageContainer: {
     position: 'relative',
-    backgroundColor: 'none', // This is the color you're applying to the top of the header
-    paddingTop: 100, // You can adjust this to move the text lower or higher
+    backgroundColor: 'none', 
+    paddingTop: 100, 
     paddingBottom: 150,
   },
   text: {
-    backgroundColor: '#90bac7',  // Set background color
-    color: 'white',               // Set text color
+    backgroundColor: '#90bac7',  
+    color: 'white',               
     padding: 15,         
-    left: 12,         // Add some padding around the text
-    borderRadius: 0,              // Optional: Add rounded corners
+    left: 12,         
+    borderRadius: 0,              
     fontSize: 16,
     width: '90%',       
     textAlign: 'left',
 
-    shadowColor: '#000',          // Shadow color (black)
-    shadowOffset: { width: 0, height: 5 },  // Shadow offset (x, y)
-    shadowOpacity: 0.3,           // Shadow opacity
+    shadowColor: '#000',          
+    shadowOffset: { width: 0, height: 5 },  
+    shadowOpacity: 0.3,           
     shadowRadius: 10,
   }
 });
