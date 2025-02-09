@@ -1,5 +1,4 @@
-import { StyleSheet, Image, TextInput, Platform, View, TouchableOpacity} from 'react-native';
-
+import { StyleSheet, Image, TextInput, Platform, View, TouchableOpacity } from 'react-native';
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -51,15 +50,17 @@ export default function TabTwoScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Meet KAPA!</ThemedText>
+        <ThemedText type="title">Meet KAPA! 🤖</ThemedText>
       </ThemedView>
       
-      <ThemedText>Have any STEM related questions to ask? Ask our ChatBot, KAPA! KAPA uses Artificial Intelligence to answer your questions, pulling knowledge together from all over the internet!</ThemedText>
+      <ThemedText style={styles.paragraphText}>
+        Have any STEM related questions to ask? Ask our ChatBot, KAPA! KAPA uses Artificial Intelligence to answer your questions, pulling knowledge together from all over the internet! 🌐
+      </ThemedText>
       
       {/* Search Bar */}
       <TextInput
         style={styles.searchBar}
-        placeholder="Type your question..."
+        placeholder="Type your question... ✍️"
         placeholderTextColor="#888"
         value={userInput}
         onChangeText={handleChangeText}
@@ -69,12 +70,12 @@ export default function TabTwoScreen() {
       {/* Chatbot Response */}
       <View style={styles.chatbotResponseContainer}>
         {loading ? (
-          <ThemedText type="default">Loading...</ThemedText> // Show loading text
+          <ThemedText type="default" style={styles.loadingText}>Loading...</ThemedText> // Show loading text
         ) : (
           chatbotResponse ? (
-            <ThemedText type="default">{chatbotResponse}</ThemedText> // Display the response
+            <ThemedText type="default" style={styles.chatbotResponseText}>{chatbotResponse}</ThemedText> // Display the response
           ) : (
-            <ThemedText type="default">No response available</ThemedText> // If no response
+            <ThemedText type="default" style={styles.chatbotResponseText}>No response available</ThemedText> // If no response
           )
         )}
       </View>
@@ -102,6 +103,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center', // Centers content vertically
     alignItems: 'center',
   },
+  paragraphText: {
+    fontSize: 18,
+    textAlign: 'center', // Center the paragraph text
+    marginVertical: 20,
+    color: '#000',
+    fontFamily: 'Sora-Regular', // Use Sora font
+  },
   searchBar: {
     height: 40,
     borderColor: '#64B5F6', // Light blue border
@@ -119,6 +127,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f5f5f5',
     borderRadius: 20, // Rounded corners
     marginHorizontal: 16, // Added horizontal margin for spacing
+    alignItems: 'center', // Center the content horizontally
+    justifyContent: 'center', // Center the content vertically
   },
   loadingText: {
     color: '#1E88E5', // Dark blue color
