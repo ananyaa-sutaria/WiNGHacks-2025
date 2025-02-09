@@ -2,7 +2,7 @@
 export type RootTabParamList = {
     _layout: undefined; // No parameters for the Home screen
     Chatbot: undefined; // No parameters for the ChatBot screen
-    Calendar: undefined;
+    Organizations: undefined;
     Scholarship: undefined;
     Profile: undefined;
   };
